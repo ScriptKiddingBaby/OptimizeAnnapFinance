@@ -150,5 +150,6 @@ export const searchHandler = <T extends Record<PropertyKey, any>>(store: Interna
 }
 
 export const statics = writable({
-    showSearch: false
+    showSearch: false,
+    navActiveItem: "/",
 })

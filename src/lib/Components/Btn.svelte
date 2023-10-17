@@ -10,7 +10,7 @@
     
 </script>
 
-<button class="{pad} {bg} {w} {round} {textColor} transition-all hover:shadow-sm hover:shadow-black active:scale-95"
+<button class="active:scale-95 {pad} {bg} {w} {round} {textColor} transition-all hover:shadow-sm hover:shadow-black "
 disabled={loader}
 on:click
 >

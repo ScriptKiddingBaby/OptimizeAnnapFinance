@@ -2,6 +2,7 @@
 
 <script lang="ts">
     import type { NavigationRoutes } from "$lib/types";
+    import { statics } from "$lib";
 
     export let name = "Accordion name";
     export let content: NavigationRoutes[] = [];
@@ -29,9 +30,17 @@ on:mouseenter
 </button>
 
 {#if open}
-    <div class="flex flex-col p-2 bg-[#00000050] lg:fixed lg:bg-blue-500 font-bold">
+    <div class="flex flex-col p-2 bg-[#00000050] lg:fixed lg:bg-blue-500 font-bold" >
         {#each content as selection }
-            <a href={selection.url} class="p-2 hover:border-[0.1rem] lg:border-white">{selection.title}</a>
+            <a href={selection.url} class="p-2 transition-all hover:border-[0.1rem] lg:border-white" 
+            class:active={$statics.navActiveItem === selection.url}
+            >{selection.title}</a>
         {/each}
     </div>
 {/if}
+
+<style>
+    .active{
+        background-color: #000000;
+    }
+</style>
