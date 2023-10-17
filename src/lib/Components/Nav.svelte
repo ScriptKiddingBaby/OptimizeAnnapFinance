@@ -56,7 +56,7 @@
 
 </script>
 
-<nav class="fixed top-0 left-0 right-0 bg-blue-500 p-2 text-white">
+<nav class="fixed left-0 right-0 bg-blue-500 p-2 text-white">
     <button class="p-2 flex flex-col gap-1 lg:hidden" on:click={showMenu}>
         <div class="w-6 border-2 "></div>
         <div class="w-6 border-2 "></div>
