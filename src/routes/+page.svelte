@@ -7,5 +7,5 @@
 </script>
 
 <div class="min-h-screen">
-	Hello World
+	Hello World WOOOORK
 </div>
