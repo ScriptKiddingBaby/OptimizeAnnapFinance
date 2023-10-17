@@ -54,6 +54,7 @@
 
     }
 
+    //**Function that show search and hide menu/
     const handleShowSearch = () =>
     {
         $statics.showSearch = true;
@@ -127,7 +128,7 @@
             <Accordion content={$navigation.location} textColor="text-white font-bold" bind:this={locationAccord} name="Location" on:click={handleLocationAccordMobile}/>
 
             {#each default_data as selection }
-                <a href={selection.url} class="p-2" >{selection.title}</a>
+                <a href={selection.url} class="p-2 font-bold" >{selection.title}</a>
             {/each}
         </div>
     </div>
