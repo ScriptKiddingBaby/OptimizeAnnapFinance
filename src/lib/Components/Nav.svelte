@@ -3,6 +3,7 @@
 	import Accordion from "./Accordion.svelte";
     import type { NavigationRoutes } from "$lib/types";
 	import { statics, navigation } from "$lib";
+	import InternalSearch from "./InternalSearch.svelte";
 
     export let default_data: NavigationRoutes[] = [
         {title: "Home", url: "/"},
@@ -53,6 +54,13 @@
 
     }
 
+    const handleShowSearch = () =>
+    {
+        $statics.showSearch = true;
+        dsComp.showMenu = false;
+
+    }
+
 
 </script>
 
@@ -97,17 +105,26 @@
 {#if dsComp.showMenu}
     <div class="fixed text-white  left-0 right-0 top-0 bottom-0 bg-[#00000050] lg:hidden" role="menu" tabindex="0" on:keydown={() => {}} on:click|self={() => dsComp.showMenu = false}>
         <div class="bg-blue-500 flex flex-col" transition:fly={{y:-200, duration: 700}}>
-            
-            
+                        
             <div class="flex flex-row-reverse p-2">
                 <button class="px-2 py-4 flex flex-col gap-1 " on:click={showMenu}>
                     <div class="w-6 border-2 border-red-500 rotate-45 absolute"></div>
                     <div class="w-6 border-2 border-red-500 rotate-[-45deg]"></div>
                 </button>
             </div>
-            <Accordion textColor="text-white font-bold" bind:this={loanAccord} name="Loan" on:click={handleLoanAccordMobile}/>
 
-            <Accordion textColor="text-white font-bold" bind:this={locationAccord} name="Location" on:click={handleLocationAccordMobile}/>
+            <div class="p-2">
+                <button class="border-[0.1rem] px-5 py-1 w-full bg-[#FFFFFF50] max-w-full flex items-center gap-1 text-black font-bold transition-all hover:border-red-500 active:scale-95 rounded-none"
+                on:click={handleShowSearch}
+                >
+                    <img src="https://www.svgrepo.com/show/532555/search.svg" class="w-6" alt="loading img" />
+                    Search
+                </button>
+            </div>
+
+            <Accordion content={$navigation.loan} textColor="text-white font-bold" bind:this={loanAccord} name="Loan" on:click={handleLoanAccordMobile}/>
+
+            <Accordion content={$navigation.location} textColor="text-white font-bold" bind:this={locationAccord} name="Location" on:click={handleLocationAccordMobile}/>
 
             {#each default_data as selection }
                 <a href={selection.url} class="p-2" >{selection.title}</a>
