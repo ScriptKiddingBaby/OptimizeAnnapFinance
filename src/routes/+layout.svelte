@@ -11,6 +11,10 @@
 	import Nav from '$lib/Components/Nav.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
+	import { initializeStores } from '@skeletonlabs/skeleton';
+
+	initializeStores();
+
 
 	import email from "$lib/Images/Nav/email.svg";
     import fb from "$lib/Images/Nav/fb.svg";
@@ -19,9 +23,15 @@
 	import { page } from '$app/stores';
 	import { statics } from '$lib';
 	import { onMount } from 'svelte';
+	import type { LayoutData } from './$types';
+	import type { UnitsTypes } from '$lib/types';
+
+	export let data: LayoutData;
+	let {item} = data;
 
 	onMount(() => {
 		$statics.navActiveItem = $page.url.pathname;
+		$statics.unitsArray = item as UnitsTypes[];
 	})
 
 	let h = 0;
@@ -37,7 +47,7 @@
 
 		<div class="fixed top-0 left-0 right-0 z-10">
 			{#if !(h > 188)}
-				<div class="w-full top-0 left-0  right-0 bg-green-500" transition:slide>
+				<div class="w-full top-0 left-0  right-0 bg-[#0CFD0C]" transition:slide>
 					<div class="flex flex-col lg:flex-row items-center p-2 justify-center gap-4">
 						<p>Monday - Friday 9:00 am - 6:00 pm</p>
 						<div class="flex gap-1">
@@ -61,7 +71,7 @@
 			
 		</div>
 
-		<div class="mt-[32vh] lg:mt-[10vh]">
+		<div class="mt-[32vh] lg:mt-[15vh] p-2">
 			<slot />
 		</div>
 	</div>
@@ -69,9 +79,9 @@
 
 
 	{#if $statics.showSearch}
-		<div class="fixed left-0 bg-[#00000050] right-0 top-0 bottom-0 z-10" role="menu" tabindex="0" on:keydown={() => {}}  on:click|self={() => $statics.showSearch = false}>
+		<div class="fixed p-2 left-0 bg-[#00000050] right-0 top-0 bottom-0 z-10" role="menu" tabindex="0" on:keydown={() => {}}  on:click|self={() => $statics.showSearch = false}>
 			<div class="sm:max-w-4xl mx-auto mt-[15vh]" in:fly={{x:-200, duration: 500}} out:fly={{x:200, duration: 500}}>
-				<InternalSearch/>
+				<InternalSearch on:click={() => $statics.showSearch = false}/>
 			</div>
 		</div>
 	{/if}

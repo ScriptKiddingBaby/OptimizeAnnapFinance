@@ -9,9 +9,9 @@
 	import { goto } from "$app/navigation";
 
     export let default_data: NavigationRoutes[] = [
-        {title: "Home", url: "/"},
-        {title: "Career", url: "/Career"},
-        {title: "Inquire Now", url: "/Inquire-now"},
+        {title: "Home", url: "/", index: 0},
+        {title: "Career", url: "/Career", index: 1},
+        {title: "Inquire Now", url: "/Inquire-now", index: 2},
     ];
     
     let loanAccord: any;
@@ -24,7 +24,7 @@
         locationAccord: false,
     }
 
-    const showMenu = () => dsComp.showMenu = !dsComp.showMenu;
+    const showMenu = () => $statics.showMenuMobile = !$statics.showMenuMobile;
 
     const handleLoanAccordMobile = () =>
     {
@@ -61,7 +61,7 @@
     const handleShowSearch = () =>
     {
         $statics.showSearch = true;
-        dsComp.showMenu = false;
+        $statics.showMenuMobile = false;
 
     }
 
@@ -113,8 +113,8 @@
     </div>
 </nav>
 
-{#if dsComp.showMenu}
-    <div class="fixed text-white  left-0 right-0 top-0 bottom-0 bg-[#00000050] lg:hidden" role="menu" tabindex="0" on:keydown={() => {}} on:click|self={() => dsComp.showMenu = false}>
+{#if $statics.showMenuMobile}
+    <div class="fixed text-white  left-0 right-0 top-0 bottom-0 bg-[#00000050] lg:hidden" role="menu" tabindex="0" on:keydown={() => {}} on:click|self={() => $statics.showMenuMobile = false}>
         <div class="bg-blue-500 flex flex-col" transition:fly={{y:-200, duration: 700}}>
                         
             <div class="flex flex-row-reverse p-2">
@@ -139,6 +139,7 @@
 
             {#each default_data as selection }
                 <a href={selection.url} class="p-2 font-bold transition-all" 
+                on:click={() => $statics.showMenuMobile = false}
                 class:active={$statics.navActiveItem === selection.url}
                 >{selection.title}</a>
             {/each}

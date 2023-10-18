@@ -34,6 +34,10 @@ on:mouseenter
         {#each content as selection }
             <a href={selection.url} class="p-2 transition-all hover:border-[0.1rem] lg:border-white" 
             class:active={$statics.navActiveItem === selection.url}
+            on:click={() => {
+                open = false;
+                $statics.showMenuMobile = false;
+            }}
             >{selection.title}</a>
         {/each}
     </div>

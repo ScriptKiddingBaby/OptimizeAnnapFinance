@@ -7,6 +7,7 @@
 	import Btn from '$lib/Components/Btn.svelte';
 	import { onMount } from 'svelte';
 	import { statics } from '$lib';
+	import { goto } from '$app/navigation';
 	
 	onMount(() => $statics.navActiveItem = "/");
 
@@ -36,9 +37,8 @@
 	{/if}
 
 	<div class="p-16 bg-blue-500 rounded-b-full">
-		<div class="mx-auto max-w-fit">
-			<Btn pad="p-2 animate-bounce text-xl border-2 border-white" round="rounded-xl" bg="bg-green-500" name="Inquire Now!"/>
-			
+		<div class="mx-auto max-w-fit animate-bounce">
+			<Btn pad="p-2 text-xl border-2 border-white" round="rounded-xl" bg="bg-green-500" name="Inquire Now!" on:click={() => goto("/Inquire-now")}/>
 		</div>
 	</div>
 
