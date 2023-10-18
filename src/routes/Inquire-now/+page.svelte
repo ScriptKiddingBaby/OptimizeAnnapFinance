@@ -21,14 +21,14 @@
             <img loading="eager" src={inquireBanner} alt="" class="w-full h-full" />
         </div>
        
-        <div class="w-full p-4 flex flex-col gap-2">
-            <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 1</h3>
+        <div class="w-full p-4 flex flex-col gap-4">
+            <h3 class="h3">Step 1</h3>
             <div class="p-2">
                 <p>Download the form and fill it up.</p>
                 <a href={step1Href} target="_blank" class="hover:text-red-500 italic text-blue-500 underline">Updated Application Form</a>
             </div>
 
-            <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 2</h3>
+            <h3 class="h3">Step 2</h3>
             <div class="p-2 flex flex-col gap-2">
 
                 <label>
@@ -83,7 +83,7 @@
 
             </div>
 
-            <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 3</h3>
+            <h3 class="h3">Step 3</h3>
             <div class="p-2 flex flex-col gap-2">
                 <FileButton name="loan-agent-career" width="px-2 py-0" />
                 <p>Upload the Application form (accepted file format pdf, jpg, png).</p>

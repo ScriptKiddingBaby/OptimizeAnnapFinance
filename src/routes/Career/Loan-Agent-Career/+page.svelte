@@ -18,9 +18,9 @@ import { FileButton } from "@skeletonlabs/skeleton";
     <h2 class="h2 text-center pt-10">Loan Agent Career</h2>
 
     <div class="flex flex-col gap-2 lg:flex-row justify-center mt-5">
-        <div class="card p-10 flex flex-col gap-2">
-            <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Description</h3>
+        <div class="card p-10 flex flex-col gap-2 shadow-sm shadow-black">
+            <div class="flex flex-col gap-2"> 
+                <h3 class="h3">Description</h3>
                 <div class="p-2">
                     <p>✔ Work Anytime Anywhere</p>
                     <p>✔ No Qualifications</p>
@@ -30,7 +30,7 @@ import { FileButton } from "@skeletonlabs/skeleton";
             </div>
     
             <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Contact</h3>
+                <h3 class="h3">Contact</h3>
                 <div class="p-2">
                     <p>Email:</p>
                     <p class="italic">mainannapolisfinance@gmail.com</p>
@@ -40,16 +40,16 @@ import { FileButton } from "@skeletonlabs/skeleton";
             </div>
     
             <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Job Locations</h3>
+                <h3 class="h3">Job Locations</h3>
                 <div class="p-2">
                     <p>Unit 1508, 15th Floor, Jollibee Plaza Condominium, Junior Rd., Ortigas, Pasig City</p>
                 </div>
             </div>
         </div>
     
-        <div class="card p-10 flex flex-col gap-2">
+        <div class="card p-10 flex flex-col gap-2 shadow-sm shadow-black">
             <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 1</h3>
+                <h3 class="h3">Step 1</h3>
                 <div class="p-2">
                     <p>Fill up this Agent Accreditation Form using Google Form.</p>
                     <a href={step1Href} target="_blank" class="text-blue-500 underline italic hover:text-red-500">Agent Accreditation Form</a>
@@ -57,7 +57,7 @@ import { FileButton } from "@skeletonlabs/skeleton";
             </div>
     
             <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 2</h3>
+                <h3 class="h3">Step 2</h3>
                 <div class="p-2">
                     <p>Download the Application form and fill up the form.</p>
                     <a href={step2Href} target="_blank" class="text-blue-500 underline italic hover:text-red-500">Download Form</a>
@@ -65,7 +65,7 @@ import { FileButton } from "@skeletonlabs/skeleton";
             </div>
     
             <div class="flex flex-col gap-2">
-                <h3 class="h3 border-b-2 border-yellow-400 max-w-fit">Step 3</h3>
+                <h3 class="h3">Step 3</h3>
                 <div class="p-2 flex flex-col gap-2">
                     <FileButton name="loan-agent-career" width="px-2 py-0" />
                     <p>Upload the Application form (accepted file format pdf, jpg, png).</p>
