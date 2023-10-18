@@ -71,7 +71,7 @@
 			
 		</div>
 
-		<div class="mt-[32vh] lg:mt-[15vh] p-2">
+		<div class="mt-[32vh] lg:mt-[10vh] p-2 min-h-screen">
 			<slot />
 		</div>
 	</div>

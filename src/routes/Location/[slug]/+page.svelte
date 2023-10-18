@@ -37,9 +37,9 @@
 </script>
 {#each $statics.locationRoutes as route, index}
 	{#if $statics.locComparison === index}
-		<div class="flex flex-col gap-4">
-			<h3 class="h3 m-2 pt-10 border-2 border-b-yellow-400 max-w-fit">{$page.url.pathname.slice(10)}</h3>
-			<div class="flex flex-col md:flex-row">
+		<div class="flex flex-col gap-4 break-words mx-auto">
+			<h2 class="h2">{$page.url.pathname.slice(10)}</h2>
+			<div class="flex flex-col gap-2 md:flex-row">
 				<div class="w-full">
 					<img loading="eager" src={route.rowOne.image} alt="" class="h-[50vh] w-full" />
 				</div>
@@ -48,9 +48,9 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col md:flex-row text-sm">
+			<div class="flex flex-col gap-2 md:flex-row text-sm justify-center">
 				
-				<div class="card flex flex-col gap-2 p-4 w-full">
+				<div class="card flex flex-col gap-2 p-4 w-full break-words overflow-auto">
 					<h4 class="h4">{route.rowTwo.innerRowOne.header}</h4>
 					<div class="flex items-center gap-2">
 						<div class="">
@@ -64,7 +64,7 @@
 							<img loading="eager" src={mobile} alt="" class="w-8 rounded-full p-1" />
 						</div>
 
-						<a href="#" target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.mobileNum}</a>
+						<p class="">{route.rowTwo.innerRowOne.mobileNum}</p>
 					</div>
 
 
@@ -75,12 +75,12 @@
 						<a href={route.rowTwo.innerRowOne.facebook.link} target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.facebook.name}</a>
 					</div>
 
-					<div class="flex items-center gap-2">
+					<div class="flex items-center gap-2 overflow-auto">
 						<div class="">
 							<img loading="eager" src={email} alt="" class="w-8 rounded-full p-1" />
 						</div>
 						
-						<a href="#" target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.gmail}</a>
+						<a href="mailto: {route.rowTwo.innerRowOne.gmail}" target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.gmail}</a>
 					</div>
 
 					<div class="card p-2 flex flex-col gap-2 shadow-sm shadow-black">

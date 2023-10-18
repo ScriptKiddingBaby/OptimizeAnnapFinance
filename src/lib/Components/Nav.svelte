@@ -12,6 +12,7 @@
         {title: "Home", url: "/", index: 0},
         {title: "Career", url: "/Career", index: 1},
         {title: "Inquire Now", url: "/Inquire-now", index: 2},
+        {title: "Talk With Us", url: "/Talk-With-Us", index: 3},
     ];
     
     let loanAccord: any;
@@ -102,6 +103,7 @@
                 on:click={() => handleSelection(selection)}
                 >{selection.title}</a>
             {/each}
+            
             <div class="">
                 <Accordion content={$navigation.location} textColor="text-white font-bold border-[0.1rem] border-blue-500" bind:this={locationAccordDesktop} name="Location" on:mouseenter={handleLocationAccordDesktop}/>
             </div>

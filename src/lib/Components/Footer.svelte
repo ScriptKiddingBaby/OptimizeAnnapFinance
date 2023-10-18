@@ -20,10 +20,10 @@
 
     <div class="flex flex-col gap-2 p-5">
         <h3 class="h3">RESOURCES</h3>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Terms and Conditions</a>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Privacy Policy</a>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Payment Options</a>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Contacts</a>
+        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">News and updates</a>
+        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Looking for a job?</a>
+        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Download Forms</a>
+        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Our Campaigns</a>
     </div>
 
     <div class="p-5">
