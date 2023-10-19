@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { statics } from "$lib";
 	import Btn from "$lib/Components/Btn.svelte";
-import { FileButton } from "@skeletonlabs/skeleton";
+    import { FileButton } from "@skeletonlabs/skeleton";
+    import { onMount } from "svelte";
 
-
+    onMount(() => $statics.navActiveItem = "/Career")
 
 
     const step1Href = "https://docs.google.com/forms/d/14wj2Y8WtFOJrrGV5mVus5xFJsIDXAtHUagcRjwMemy0/viewform?edit_requested=true&pli=1#settings";
