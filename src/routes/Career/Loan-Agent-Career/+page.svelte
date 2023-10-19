@@ -12,7 +12,7 @@ import { FileButton } from "@skeletonlabs/skeleton";
 <div class="my-10">
 
     <div class="pt-5 mx-5 max-w-fit">
-        <a href="/Career" class="underline hover:text-red-500"><p class="font-semibold">Back to <b class="text-slate-500 font-normal">/Career</b></p>  </a>
+        <a href="/Career" class="underline hover:text-red-500"><p class="font-semibold">Back to <b class="text-slate-500 font-normal">Career</b></p>  </a>
     </div>
 
     <h2 class="h2 text-center pt-10">Loan Agent Career</h2>

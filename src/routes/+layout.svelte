@@ -30,7 +30,6 @@
 	let {item} = data;
 
 	onMount(() => {
-		$statics.navActiveItem = $page.url.pathname;
 		$statics.unitsArray = item as UnitsTypes[];
 	})
 

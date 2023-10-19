@@ -12,9 +12,9 @@
 <footer class="flex flex-col lg:flex-row justify-evenly border-[0.1rem] border-slate-500 text-black bg-slate-300">
     <div class="flex flex-col gap-2 p-5">
         <h3 class="h3">USEFUL LINKS</h3>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Terms and Conditions</a>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Privacy Policy</a>
-        <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Payment Options</a>
+        <a href="/Home/Terms-And-Conditions" class="underline transition-all hover:text-red-500 max-w-fit">Terms and Conditions</a>
+        <a href="/Home/Privacy-Policy" class="underline transition-all hover:text-red-500 max-w-fit">Privacy Policy</a>
+        <a href="/Home/Payment-Options" class="underline transition-all hover:text-red-500 max-w-fit">Payment Options</a>
         <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Contacts</a>
     </div>
 

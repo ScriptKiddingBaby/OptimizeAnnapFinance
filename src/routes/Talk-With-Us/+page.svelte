@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { statics } from "$lib";
 	import Btn from "$lib/Components/Btn.svelte";
+	import { onMount } from "svelte";
 
-
+    onMount(() => {
+        $statics.navActiveItem = "/Talk-With-Us"
+    })
 </script>
 
 <div class="md:max-w-xl mx-auto">
@@ -15,7 +19,7 @@
 
             <label>
                 <b>Password:</b>
-                <input type="text" class="input" />
+                <input type="password" class="input" />
             </label>
 
             <div class="max-w-fit mx-auto">
