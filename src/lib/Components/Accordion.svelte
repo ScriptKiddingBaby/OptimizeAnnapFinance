@@ -30,9 +30,9 @@ on:mouseenter
 </button>
 
 {#if open}
-    <div class="flex flex-col p-2 bg-[#00000050] lg:fixed lg:bg-blue-500 font-bold" >
+    <div class="flex flex-col gap-2 p-2 bg-[#00000050] lg:fixed lg:bg-[#01009F] font-bold " >
         {#each content as selection }
-            <a href={selection.url} class="p-2 transition-all hover:border-[0.1rem] lg:border-white" 
+            <a href={selection.url} class="p-2 transition-all rounded-2xl hover:border-white hover:text-white hover:bg-[#FFFFFF50] lg:border-white" 
             class:active={$statics.navActiveItem === selection.url}
             on:click={() => {
                 open = false;
@@ -46,5 +46,6 @@ on:mouseenter
 <style>
     .active{
         background-color: #000000;
+        border-radius: 1rem;
     }
 </style>

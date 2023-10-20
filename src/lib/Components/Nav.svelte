@@ -69,7 +69,7 @@
 
 </script>
 
-<nav class="fixed left-0 right-0 bg-blue-500 p-2 text-white shadow-lg shadow-black ">
+<nav class="fixed left-0 right-0 bg-[#01009F] p-2 text-white shadow-lg shadow-black ">
     <button class="p-2 flex flex-col gap-1 lg:hidden" on:click={showMenu}>
         <div class="w-6 border-2 "></div>
         <div class="w-6 border-2 "></div>
@@ -78,13 +78,12 @@
 
     <div class="hidden lg:flex gap-1">
         <button class="max-w-fit flex items-center gap-1 w-full " on:click={() => goto("/")}>
-            <img src={annapIcon} alt="" class="w-16" />
             <h3 class="h3">Annapolis Finance Inc.</h3>
         </button>
 
         <div class="flex flex-row-reverse gap-2 w-full items-center">
             <div class="flex items-center mx-2">
-                <button class="border-[0.1rem] px-5 py-1 w-full bg-[#FFFFFF50] rounded-2xl flex items-center gap-1 text-black font-bold transition-all hover:border-red-500 active:scale-95"
+                <button class="border-[0.1rem] px-5 py-1 w-full bg-white rounded-2xl flex items-center gap-1 text-black font-bold transition-all hover:border-red-500 active:scale-95"
                 on:click={() => $statics.showSearch = true}
                 >
                     <img src="https://www.svgrepo.com/show/532555/search.svg" class="w-6" alt="loading img" />
@@ -93,7 +92,7 @@
             </div>
     
             {#each default_data as selection }
-                <a href={selection.url} class="p-2 transition-all font-bold border-[0.1rem] border-blue-500 hover:border-white hover:text-white hover:bg-[#FFFFFF50] active:scale-95"
+                <a href={selection.url} class="p-2 transition-all font-bold hover:rounded-2xl hover:border-white hover:text-white hover:bg-[#FFFFFF50] active:scale-95"
                 class:active={$statics.navActiveItem === selection.url}
                 on:mouseenter={() => {
                     loanAccordDesktop.open = false;
@@ -105,11 +104,11 @@
             {/each}
             
             <div class="">
-                <Accordion content={$navigation.location} textColor="text-white font-bold border-[0.1rem] border-blue-500" bind:this={locationAccordDesktop} name="Location" on:mouseenter={handleLocationAccordDesktop}/>
+                <Accordion bg="bg-[#01009F]" content={$navigation.location} textColor="text-white font-bold  hover:rounded-2xl" bind:this={locationAccordDesktop} name="Location" on:mouseenter={handleLocationAccordDesktop}/>
             </div>
     
             <div class="">
-                <Accordion content={$navigation.loan} textColor="text-white font-bold border-[0.1rem] border-blue-500" bind:this={loanAccordDesktop} name="Loan" on:mouseenter={handleLoanAccordDesktop}/>
+                <Accordion bg="bg-[#01009F]" content={$navigation.loan} textColor="text-white font-bold  hover:rounded-2xl" bind:this={loanAccordDesktop} name="Loan" on:mouseenter={handleLoanAccordDesktop}/>
             </div>
         </div>
     </div>
@@ -152,5 +151,6 @@
 <style>
     .active{
         background-color: #000000;
+        border-radius: 1rem;
     }
 </style>

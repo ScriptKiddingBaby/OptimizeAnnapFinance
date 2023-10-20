@@ -13,11 +13,11 @@ import pasigBanner from "$lib/Images/Location/PasigOffice/pasigBanner.webp";
 export const navigation = writable<NavStore>({
     location:<NavigationRoutes[]> [
         {title: "Head Office", url: "/Location/Head-Office", index: 0},
-        {title: "Antipolo Marketing Office", url: "/Location/Antipolo-Marketing-Office", index: 1},
+        /* {title: "Antipolo Marketing Office", url: "/Location/Antipolo-Marketing-Office", index: 1},
         {title: "Bulacan Marketing Office", url: "/Location/Bulacan-Marketing-Office", index: 2},
         {title: "Cavite Marketing Office", url: "/Location/Cavite-Marketing-Office", index: 3},
         {title: "Parañaque Marketing Office", url: "/Location/Paranaque-Marketing-Office", index: 4},
-        {title: "Pasig Marketing Office", url: "/Location/Pasig-Marketing-Office", index: 5},
+        {title: "Pasig Marketing Office", url: "/Location/Pasig-Marketing-Office", index: 5}, */
     ],
 
     loan: <NavigationRoutes[]> [
@@ -69,7 +69,7 @@ export const interlnalSEO: SEOinternalTypes[] = [
         url: "/Location/Head-Office",
     },
 
-    {
+   /*  {
         id: 5,
         title: "ANNAPOLIS FINANCE - ANTIPOLO MARKETING OFFICE",
         content: "Location / Antipolo Marketing Office, Annapolis Finance Inc Antipolo Branch, MLQ extension,Brgy Dalig, Antipolo City Landmark: Rica Hardware., 09159592861, Antipolo Branch Facebook Page, afiantipolo@gmail.com, Antipolo Branch, WANT TO KNOW WHEN WE GOT NEWS ON OUR LATEST PRODUCT? SIGN UP FOR OUR NEWSLETTER NOW!, First Name, Middle Name, Last Name, Address, Mobile Number, Email, I agree with the Terms and Conditions of Annapolis Finance Incorporation, I accept the Privacy Policy of Annapolis Finance Incorporation",
@@ -109,7 +109,7 @@ export const interlnalSEO: SEOinternalTypes[] = [
         display: "2nd Flr Discovery Building, Lifehomes, Ortigas Extension, Pasig City Landmark: Beside of Lucky Gold Plaza Bldg.",
         url: "/Location/Pasig-Marketing-Office",
         
-    },
+    }, */
 
     {
         id: 10,
