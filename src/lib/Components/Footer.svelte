@@ -9,9 +9,9 @@
 
 </script>
 
-<footer class="flex flex-col lg:flex-row justify-evenly border-[0.1rem] border-slate-500 text-black bg-slate-300">
+<footer class="flex flex-col lg:flex-row justify-evenly border-[0.1rem] border-slate-500 text-black bg-slate-300 font-sans">
     <div class="flex flex-col gap-2 p-5">
-        <h3 class="h3 font-bold">USEFUL LINKS</h3>
+        <h3 class="h3 font-serif font-bold">USEFUL LINKS</h3>
         <a href="/Home/Terms-And-Conditions" class="underline transition-all hover:text-red-500 max-w-fit">Terms and Conditions</a>
         <a href="/Home/Privacy-Policy" class="underline transition-all hover:text-red-500 max-w-fit">Privacy Policy</a>
         <a href="/Home/Payment-Options" class="underline transition-all hover:text-red-500 max-w-fit">Payment Options</a>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="flex flex-col gap-2 p-5">
-        <h3 class="h3 font-bold">RESOURCES</h3>
+        <h3 class="h3  font-serif font-bold">RESOURCES</h3>
         <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">News and updates</a>
         <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Looking for a job?</a>
         <a href="/" class="underline transition-all hover:text-red-500 max-w-fit">Download Forms</a>
@@ -28,7 +28,7 @@
 
     <div class="p-5">
         <div class="card p-5 flex flex-col gap-2 bg-slate-400 shadow-lg shadow-black">
-            <h2 class="h2 text-white text-center">SIGNUP AND GET THE LATEST NEWS</h2>
+            <h2 class="h2 text-white text-center font-serif font-bold">SIGNUP AND GET THE LATEST NEWS</h2>
             <input type="email" class="input" placeholder="Add your email address to subscribe" />
             <div class="max-w-fit mx-auto">
                 <Btn round="rounded-lg" bg="bg-green-500" name="Subscribe"/>

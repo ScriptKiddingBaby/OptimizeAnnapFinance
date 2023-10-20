@@ -55,7 +55,7 @@ export const interlnalSEO: SEOinternalTypes[] = [
 
     {
         id: 3,
-        title: "ANNAPOLIS FINANCE - APPLY NOW",
+        title: "ANNAPOLIS FINANCE - INQUIRE NOW",
         content: "Step 1, Download the form and fill it up. Click here to download, Step 2, Choose one:, Employed(private corporation), Business(1 year existing business ), Remittance, Allotment, Rider, First Name, Middle Name, Last Name, Address, Mobile Number, Email, Choose one: Sangla ORCR motorcycle, Sangla orcr tricycle, Sangla orcr bigbike, Finance appliances, finance iphone/samsung, Step 3, Choose a file, Upload the Application form (accepted file format pdf, jpg, png), I agree with the Terms and Conditions of Annapolis Finance Incorporation, I accept the Privacy Policy of Annapolis Finance Incorporation",
         display: "Be part of our team apply now!",
         url: "/Inquire-now"

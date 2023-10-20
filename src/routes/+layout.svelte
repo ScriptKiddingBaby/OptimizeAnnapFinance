@@ -47,21 +47,34 @@
 		<div class="fixed top-0 left-0 right-0 z-10">
 			{#if !(h > 188)}
 				<div class="w-full top-0 left-0  right-0 bg-[#0CFD0C]" transition:slide>
+					<div class="text-center">
+						<h3 class="h3 font-serif font-bold">Annapolis Finance Inc.</h3>
+					</div>
+
 					<div class="flex flex-col lg:flex-row items-center p-2 justify-center gap-4">
-						<p>Monday - Friday 9:00 am - 6:00 pm</p>
+						<p class="font-serif font-semibold">Monday - Friday 9:00 am - 6:00 pm</p>
 						<div class="flex gap-1">
 							<img src={mobile} alt="" class="w-6 p-1 rounded-full border-[0.1rem] border-black " />
-							<p>09294135807</p>
+							<p class="font-serif font-semibold">09294135807</p>
 						</div>
 
 						<div class="flex gap-1">
 							<img src={fb} alt="" class="w-6 p-1 rounded-full border-[0.1rem] border-black " />
-							<p>Annapol Finance</p>
+							<p class="font-serif font-semibold">Annapol Finance</p>
 						</div>
 
 						<div class="flex gap-1">
 							<img src={email} alt="" class="w-6 p-1 rounded-full border-[0.1rem] border-black " />
-							<p>costumerservice@annapolis.com.ph</p>
+							<p class="font-serif font-semibold">costumerservice@annapolis.com.ph</p>
+						</div>
+
+						<div class="flex items-center mx-2">
+							<button class="border-[0.1rem] px-5 py-1 w-full bg-white rounded-2xl flex items-center gap-1  transition-all hover:border-red-500 active:scale-95"
+							on:click={() => $statics.showSearch = true}
+							>
+								<img src="https://www.svgrepo.com/show/532555/search.svg" class="w-6" alt="loading img" />
+								<p class="font-serif text-black font-bold">Search</p>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -70,7 +83,7 @@
 			
 		</div>
 
-		<div class="mt-[32vh] lg:mt-[10vh] p-2 min-h-screen">
+		<div class="mt-[32vh] lg:mt-[20vh] p-2 min-h-screen">
 			<slot />
 		</div>
 	</div>

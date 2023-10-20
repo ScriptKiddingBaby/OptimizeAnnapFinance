@@ -77,19 +77,10 @@
     </button>
 
     <div class="hidden lg:flex gap-1">
-        <button class="max-w-fit flex items-center gap-1 w-full" on:click={() => goto("/")}>
-            <h3 class="h3 font-serif font-extrabold ml-2 transition-all">Annapolis Finance Inc.</h3>
-        </button>
+        
 
-        <div class="flex flex-row-reverse gap-2 w-full items-center">
-            <div class="flex items-center mx-2">
-                <button class="border-[0.1rem] px-5 py-1 w-full bg-white rounded-2xl flex items-center gap-1 text-black font-bold transition-all hover:border-red-500 active:scale-95"
-                on:click={() => $statics.showSearch = true}
-                >
-                    <img src="https://www.svgrepo.com/show/532555/search.svg" class="w-6" alt="loading img" />
-                    Search
-                </button>
-            </div>
+        <div class="flex flex-row-reverse gap-2 w-full justify-center items-center">
+            
     
             {#each default_data as selection }
                 <a href={selection.url} class="p-2 transition-all font-bold hover:rounded-2xl hover:border-white hover:text-white hover:bg-[#FFFFFF50] active:scale-95"
@@ -100,7 +91,7 @@
                 }}
     
                 on:click={() => handleSelection(selection)}
-                ><p class="font-mono">{selection.title}</p></a>
+                ><h4 class="font-serif h4">{selection.title}</h4></a>
             {/each}
             
             <div class="">
@@ -142,7 +133,7 @@
                 <a href={selection.url} class="p-2 font-bold transition-all" 
                 on:click={() => $statics.showMenuMobile = false}
                 class:active={$statics.navActiveItem === selection.url}
-                >{selection.title}</a>
+                ><h4 class="font-serif h4">{selection.title}</h4></a>
             {/each}
         </div>
     </div>

@@ -20,7 +20,7 @@ on:click
 on:mouseenter
 >
     <div class="w-full">
-        <p class="font-mono">{name}</p>
+        <h4 class="font-serif h4">{name}</h4>
         
     </div>
 
@@ -38,7 +38,7 @@ on:mouseenter
                 open = false;
                 $statics.showMenuMobile = false;
             }}
-            ><p class="font-mono">{selection.title}</p></a>
+            ><h4 class="font-serif h4">{selection.title}</h4></a>
         {/each}
     </div>
 {/if}

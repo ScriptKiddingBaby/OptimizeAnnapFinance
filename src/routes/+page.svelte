@@ -36,23 +36,23 @@
 		</Carousel>
 	{/if}
 
-	<div class="p-16 bg-blue-500 rounded-b-full">
+	<div class="p-16 bg-[#01009F] rounded-b-full">
 		<div class="mx-auto max-w-fit animate-bounce">
-			<Btn pad="p-2 text-xl border-2 border-white" round="rounded-xl" bg="bg-green-500" name="Inquire Now!" on:click={() => goto("/Inquire-now")}/>
+			<Btn textColor="text-black font-serif font-bold" pad="p-2 text-xl" round="rounded-xl" bg="bg-[#0CFD0C]" name="Inquire Now!" on:click={() => goto("/Inquire-now")}/>
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-2 p-10">
-		<div class="card p-5 bg-white flex flex-col gap-4">
-			<h3 class="h3">ABOUT US</h3>
-			<p>
+	<div class="flex flex-col lg:flex-row gap-2 p-10">
+		<div class="card p-5 bg-white flex flex-col gap-4 w-full">
+			<h3 class="h3 font-bold font-serif">ABOUT US</h3>
+			<p class="font-sans">
 				Annapolis offers a cash loan using your ORCR as collateral with low interest rate, higher appraisal value and flexible terms.
 			</p>
 		</div>
 
-		<div class="card p-5 bg-white flex flex-col gap-4">
-			<h3 class="h3">MISSION</h3>
-			<p>
+		<div class="card p-5 bg-white flex flex-col gap-4 w-full">
+			<h3 class="h3 font-bold font-serif">MISSION</h3>
+			<p class="font-sans">
 				To bridge the gap to the financially unserved by providing comprehensive and innovative financial services.
 			</p>
 		</div>
