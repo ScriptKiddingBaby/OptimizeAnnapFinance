@@ -38,7 +38,7 @@
 </script>
 <svelte:window bind:scrollY={h}/>
 
-{#if true}
+{#if $statics.promptAdvisory}
 	<PrompAdvisory />
 {/if}
 
@@ -50,7 +50,7 @@
 	
 	<div class="">
 
-		<div class="fixed top-0 left-0 right-0 "> <!-- z-10 need to be append-->
+		<div class="fixed top-0 left-0 right-0 {$statics.promptAdvisory ? "" : "z-10"}"> <!-- z-10 need to be append-->
 			{#if !(h > 100)}
 				<div class="w-full top-0 left-0  right-0 bg-[#0CFD0C]" transition:slide>
 					<div class="text-center">
