@@ -24,7 +24,7 @@
 
         <div class="mx-auto max-w-fit">
             <Btn bg="bg-[#0CFD0C]" textColor="text-black px-8" round="rounded-lg" name="Agree"
-            on:click={() => $statics.promptAdvisory = true}
+            on:click={() => $statics.promptAdvisory = false}
             />
         </div>
     </div>
