@@ -78,7 +78,7 @@
 
     <div class="hidden lg:flex gap-1">
         <button class="max-w-fit flex items-center gap-1 w-full " on:click={() => goto("/")}>
-            <h1 class="h1">Annapolis Finance Inc.</h1>
+            <h3 class="h3 font-bold ml-2">Annapolis Finance Inc.</h3>
         </button>
 
         <div class="flex flex-row-reverse gap-2 w-full items-center">
