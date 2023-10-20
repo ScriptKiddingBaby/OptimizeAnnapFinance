@@ -80,7 +80,7 @@
             <h3 class="h3 text-black text-center font-serif font-bold">SIGNUP AND GET THE LATEST NEWS</h3>
             <input type="email" class="input" placeholder="Add your email address to subscribe" bind:value={dsComp.email}/>
             <div class="max-w-fit mx-auto">
-                <Btn round="rounded-lg" bg="bg-green-500" name="Subscribe" loader={dsComp.loader} loader_name="Subscribing" on:click={handleSubscribe}/>
+                <Btn textColor="text-black" round="rounded-lg" bg="bg-[#0CFD0C]" name="Subscribe" loader={dsComp.loader} loader_name="Subscribing" on:click={handleSubscribe}/>
             </div>
 
             <div class="flex justify-center gap-4">
