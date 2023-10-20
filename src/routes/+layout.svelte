@@ -89,7 +89,7 @@
 			
 		</div>
 
-		<div class="mt-[45vh] lg:mt-[20vh] p-2 min-h-screen">
+		<div class="mt-[37vh] lg:mt-[20vh] p-2 min-h-screen">
 			<slot />
 		</div>
 	</div>
