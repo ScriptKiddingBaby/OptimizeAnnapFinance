@@ -223,7 +223,7 @@
             </div>
 
             <div class="max-w-fit mx-auto">
-                <Btn pad="px-10 py-2" round="rounded-xl" name="Submit" loader={dsComp.loader} loader_name="Submitting" on:click={uploadHandler}/>
+                <Btn bg="bg-[#01009F]" pad="px-10 py-2" round="rounded-xl" name="Submit" loader={dsComp.loader} loader_name="Submitting" on:click={uploadHandler}/>
             </div>
         </div>
         
