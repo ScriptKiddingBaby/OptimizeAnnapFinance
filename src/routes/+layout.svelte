@@ -74,7 +74,7 @@
 							<p class="font-serif font-semibold">costumerservice@annapolis.com.ph</p>
 						</div>
 
-						<div class="flex items-center mx-2">
+						<div class="flex items-center mx-2 hidden lg:block">
 							<button class="border-[0.1rem] px-5 py-1 w-full bg-white rounded-2xl flex items-center gap-1  transition-all hover:border-red-500 active:scale-95"
 							on:click={() => $statics.showSearch = true}
 							>
