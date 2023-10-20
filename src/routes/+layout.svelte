@@ -25,6 +25,7 @@
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
 	import type { UnitsTypes } from '$lib/types';
+	import PrompAdvisory from '$lib/Components/PrompAdvisory.svelte';
 
 	export let data: LayoutData;
 	let {item} = data;
@@ -36,6 +37,11 @@
 	let h = 0;
 </script>
 <svelte:window bind:scrollY={h}/>
+
+{#if true}
+	<PrompAdvisory />
+{/if}
+
 <div class="fixed bottom-0 right-0 m-4">
 	<LightSwitch />
 </div>
@@ -44,7 +50,7 @@
 	
 	<div class="">
 
-		<div class="fixed top-0 left-0 right-0 z-10">
+		<div class="fixed top-0 left-0 right-0 "> <!-- z-10 need to be append-->
 			{#if !(h > 100)}
 				<div class="w-full top-0 left-0  right-0 bg-[#0CFD0C]" transition:slide>
 					<div class="text-center">

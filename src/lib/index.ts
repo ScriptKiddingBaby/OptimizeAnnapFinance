@@ -162,6 +162,8 @@ export const statics = writable({
     showSearch: false,
     navActiveItem: "/",
 
+    promptAdvisory: true,
+
     locationRoutes:<DynamicRoute[]> [
         //** Head Office */
         {
