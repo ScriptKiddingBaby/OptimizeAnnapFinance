@@ -124,12 +124,12 @@
 <Toast position="br" transitions={true} />
 
 <div class="p-2">
-    <div class="flex flex-col lg:flex-row lg:items-stretch">
+    <div class="flex flex-col lg:flex-row gap-4 lg:items-stretch">
         <div class="">
             <img loading="eager" src={inquireBanner} alt="" class="w-full h-full" />
         </div>
        
-        <div class="w-full p-4 flex flex-col gap-4 font-sans">
+        <div class="w-full flex flex-col gap-4 font-sans">
             <h4 class="h4 font-serif font-bold">Step 1</h4>
             <div class="p-2">
                 <p>Download the form and fill it up.</p>
@@ -192,8 +192,8 @@
             </div>
 
             <h4 class="h4 font-serif font-bold">Step 3</h4>
-            <div class="p-2 flex flex-col gap-2">
-                <div class="flex flex-col gap-1">
+            <div class="p-2 flex flex-col gap-4">
+                <div class="flex flex-col gap-1 w-full">
                     <FileDropzone accept="image/png, image/jpeg, application/pdf" name="loan-agent-career" width="px-2 py-0" bind:files />
 
                     {#if files}
@@ -207,15 +207,15 @@
                     {/if}
                 </div>
                 
-                <p>Upload the Application form (accepted file format pdf, jpg, png, max size 70KB).</p>
+                <p class=text-center>Upload the Application form (accepted file format pdf, jpg, png, <i class="font-semibold">max size 70KB</i>).</p>
                 
-                <div class="p-2">
-                    <div class="flex items-center gap-2">
+                <div class="flex flex-col gap-2 w-full">
+                    <div class="flex items-center gap-4">
                         <input type="checkbox" class="checkbox" bind:checked={dsComp.tac}/>
                         <p>I agree with the <a target="_blank" href="http://localhost:5173/Home/Terms-And-Conditions" class="text-blue-500 underline hover:text-red-500">Terms and Conditions</a> of Annapolis Finance Incorporation</p>
                     </div>
 
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-4">
                         <input type="checkbox" class="checkbox" bind:checked={dsComp.pp}/>
                         <p>I accept the <a target="_blank" href="http://localhost:5173/Home/Privacy-Policy" class="text-blue-500 underline hover:text-red-500">Privacy Policy</a> of Annapolis Finance Incorporation</p>
                     </div>
