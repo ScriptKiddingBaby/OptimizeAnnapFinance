@@ -100,7 +100,7 @@
                 }}
     
                 on:click={() => handleSelection(selection)}
-                >{selection.title}</a>
+                ><p class="font-mono">{selection.title}</p></a>
             {/each}
             
             <div class="">
