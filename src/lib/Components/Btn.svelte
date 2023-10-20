@@ -20,6 +20,6 @@ on:click
             <div class="w-4 h-4 border-2 rounded-full animate-spin border-b-slate-400"></div>
         </div>
     {:else}
-        <p>{name}</p>
+        <p class="font-serif font-bold">{name}</p>
     {/if}
 </button>

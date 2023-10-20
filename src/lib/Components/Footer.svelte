@@ -28,7 +28,7 @@
 
     <div class="p-5">
         <div class="card p-5 flex flex-col gap-2 bg-slate-400 shadow-lg shadow-black">
-            <h2 class="h2 text-white text-center font-serif font-bold">SIGNUP AND GET THE LATEST NEWS</h2>
+            <h3 class="h3 text-black text-center font-serif font-bold">SIGNUP AND GET THE LATEST NEWS</h3>
             <input type="email" class="input" placeholder="Add your email address to subscribe" />
             <div class="max-w-fit mx-auto">
                 <Btn round="rounded-lg" bg="bg-green-500" name="Subscribe"/>

@@ -3,9 +3,10 @@
 	import { statics } from "$lib";
 	import Btn from "$lib/Components/Btn.svelte";
     import inquireBanner from "$lib/Images/InquireNow/inquireBanner.webp";
-	import { FileButton } from "@skeletonlabs/skeleton";
+    import trashicon from "$lib/Images/InquireNow/trash.svg";
 	import { onMount } from "svelte";
 
+    import { FileDropzone } from '@skeletonlabs/skeleton';
     import { Toast, getToastStore } from '@skeletonlabs/skeleton';
     import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
     const toastStore = getToastStore();
@@ -22,6 +23,7 @@
 
     import { v4 as uuidv4 } from 'uuid';
     import { supabase } from "$lib/DB/supabaseConfig";
+	import { scale } from "svelte/transition";
 
 
     onMount(() => $statics.navActiveItem = $page.url.pathname);
@@ -127,14 +129,14 @@
             <img loading="eager" src={inquireBanner} alt="" class="w-full h-full" />
         </div>
        
-        <div class="w-full p-4 flex flex-col gap-4">
-            <h3 class="h3">Step 1</h3>
+        <div class="w-full p-4 flex flex-col gap-4 font-sans">
+            <h4 class="h4 font-serif font-bold">Step 1</h4>
             <div class="p-2">
                 <p>Download the form and fill it up.</p>
-                <a href={step1Href} target="_blank" class="hover:text-red-500 italic text-blue-500 underline">Updated Application Form</a>
+                <a href={step1Href} target="_blank" class="hover:text-red-500 text-blue-500 underline">Updated Application Form</a>
             </div>
 
-            <h3 class="h3">Step 2</h3>
+            <h4 class="h4 font-serif font-bold">Step 2</h4>
             <div class="p-2 flex flex-col gap-2">
 
                 <label>
@@ -189,11 +191,20 @@
 
             </div>
 
-            <h3 class="h3">Step 3</h3>
+            <h4 class="h4 font-serif font-bold">Step 3</h4>
             <div class="p-2 flex flex-col gap-2">
-                <div class="flex gap-1">
-                    <FileButton accept="image/png, image/jpeg, application/pdf" name="loan-agent-career" width="px-2 py-0" bind:files />
-                    <p class="font-semibold underline text-red-500">{files ? files[0].name : ""}</p>
+                <div class="flex flex-col gap-1">
+                    <FileDropzone accept="image/png, image/jpeg, application/pdf" name="loan-agent-career" width="px-2 py-0" bind:files />
+
+                    {#if files}
+                        <div class="flex gap-1 mx-auto" transition:scale>
+                            
+                            <p class="font-semibold underline text-red-900">{files[0].name}</p>
+                            <button class="text-red-500  transition-all active:scale-95" 
+                            on:click={() => files = ""}
+                            ><img loading="eager" src={trashicon} alt="" class="w-6 " title="Delete this file ?"/></button>
+                        </div>
+                    {/if}
                 </div>
                 
                 <p>Upload the Application form (accepted file format pdf, jpg, png, max size 70KB).</p>
