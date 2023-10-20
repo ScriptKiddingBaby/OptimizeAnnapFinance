@@ -32,17 +32,22 @@
     {   
         if(dsComp.email.length > 5){
             if(dsComp.email.includes("@")){
-                dsComp.loader = true;
-                const {error} = await supabase.from("subscribed_tb").insert({email: dsComp.email});
-                if(error){
-                    createToast("There is an error in database. Contact mikey dev for this sht!", true);
-                    dsComp.loader = false;
+                if(dsComp.email.includes(".com")){
+                    dsComp.loader = true;
+                    const {error} = await supabase.from("subscribed_tb").insert({email: dsComp.email});
+                    if(error){
+                        createToast("There is an error in database. Contact mikey dev for this sht!", true);
+                        dsComp.loader = false;
+                    }else{
+                        createToast("Subscribed, you will be notified for the latest news!", false);
+                        dsComp.loader = false;
+                        dsComp.email = "";
+                    }
                 }else{
-                    createToast("Subscribed you will be notified for the latest news!", false);
-                    dsComp.loader = false;
+                    createToast("I think an email must have a pattern of .com isn't?", true);
                 }
             }else{
-                createToast("What are you doing step bro?", true);
+                createToast("I think an email must have a pattern of @ isn't?", true);
             }
         }else{
             createToast("Enter a valid email", true);
