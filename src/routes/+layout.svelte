@@ -45,7 +45,7 @@
 	<div class="">
 
 		<div class="fixed top-0 left-0 right-0 z-10">
-			{#if !(h > 188)}
+			{#if !(h > 100)}
 				<div class="w-full top-0 left-0  right-0 bg-[#0CFD0C]" transition:slide>
 					<div class="text-center">
 						<h3 class="h3 font-serif font-bold">Annapolis Finance Inc.</h3>
@@ -83,7 +83,7 @@
 			
 		</div>
 
-		<div class="mt-[32vh] lg:mt-[20vh] p-2 min-h-screen">
+		<div class="mt-[45vh] lg:mt-[20vh] p-2 min-h-screen">
 			<slot />
 		</div>
 	</div>

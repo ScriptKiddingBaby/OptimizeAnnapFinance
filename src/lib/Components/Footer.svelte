@@ -7,7 +7,51 @@
     import email from "$lib/Images/Footer/emails.svg";
     import rss from "$lib/Images/Footer/rss.svg";
 
+    import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+    import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+    const toastStore = getToastStore();
+
+    const createToast = (msg: string, hasErr: boolean) =>
+    {
+        const t: ToastSettings = {
+            message: `<p class="text-white "> ${msg} </p>`,
+            background: `${hasErr ? "bg-red-500": "bg-green-500"}`
+        };
+
+        return toastStore.trigger(t);
+    }
+
+    import { supabase } from "$lib/DB/supabaseConfig";
+
+    const dsComp = {
+        loader: false,
+        email: "",
+    }
+
+    const handleSubscribe = async () =>
+    {   
+        if(dsComp.email.length > 5){
+            if(dsComp.email.includes("@")){
+                dsComp.loader = true;
+                const {error} = await supabase.from("subscribed_tb").insert({email: dsComp.email});
+                if(error){
+                    createToast("There is an error in database. Contact mikey dev for this sht!", true);
+                    dsComp.loader = false;
+                }else{
+                    createToast("Subscribed you will be notified for the latest news!", false);
+                    dsComp.loader = false;
+                }
+            }else{
+                createToast("What are you doing step bro?", true);
+            }
+        }else{
+            createToast("Enter a valid email", true);
+        }
+    }
+
 </script>
+
+<Toast position="br" transitions={true} />
 
 <footer class="flex flex-col lg:flex-row justify-evenly border-[0.1rem] border-slate-500 text-black bg-slate-300 font-sans">
     <div class="flex flex-col gap-2 p-5">
@@ -29,9 +73,9 @@
     <div class="p-5">
         <div class="card p-5 flex flex-col gap-2 bg-slate-400 shadow-lg shadow-black">
             <h3 class="h3 text-black text-center font-serif font-bold">SIGNUP AND GET THE LATEST NEWS</h3>
-            <input type="email" class="input" placeholder="Add your email address to subscribe" />
+            <input type="email" class="input" placeholder="Add your email address to subscribe" bind:value={dsComp.email}/>
             <div class="max-w-fit mx-auto">
-                <Btn round="rounded-lg" bg="bg-green-500" name="Subscribe"/>
+                <Btn round="rounded-lg" bg="bg-green-500" name="Subscribe" loader={dsComp.loader} loader_name="Subscribing" on:click={handleSubscribe}/>
             </div>
 
             <div class="flex justify-center gap-4">
@@ -49,5 +93,5 @@
 </footer>
 
 <div class="p-2 text-center bg-black text-white">
-    <p class="text-sm">Copyright 2023 Annapolis Finance Inc.</p>
+    <pre class="text-sm font-sans">All rights reserve 2023 Annapolis Finance Inc.</pre>
 </div>
