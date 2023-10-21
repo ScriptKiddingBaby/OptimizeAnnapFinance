@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { statics } from "$lib";
+	import { scale } from "svelte/transition";
 	import Btn from "./Btn.svelte";
 
 
 </script>
 
-<div class="fixed bottom-0 top-0 left-0 right-0 bg-[#00000090] z-10 flex justify-center text-black font-sans p-2">
-    <div class="card sm:max-w-xl p-4 flex flex-col gap-2 shadow-lg shadow-black max-h-[75vh] overflow-auto mt-[10vh]">
+<div class="fixed bottom-0 top-0 left-0 right-0 bg-[#00000090] z-10  text-black font-sans p-2" >
+
+    <div class="card sm:max-w-xl mx-auto p-4 flex flex-col gap-2 shadow-lg shadow-black mt-[10vh]" transition:scale>
         <h4 class="h4 text-center font-serif font-bold">Prompt Advisory from Annapolis Finance Inc.</h4>
 
         <p class="indent-10">

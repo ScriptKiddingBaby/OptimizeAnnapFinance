@@ -29,89 +29,14 @@
     const dsComp = {
         loader: false,
         domMsg: "",
-        jobStatus: "",
-        firstname: "",
-        middlename: "",
-        lastname: "",
-        address: "",
-        mobileNumber: "",
-        email: "",
-        motive: "",
-        tac: false,
-        pp: false,
+        
     }
 
     let files: any;
     const uploadHandler = async () =>
     {
-        const uid = uuidv4();
-        const fullname = `${dsComp.lastname} ${dsComp.firstname} ${dsComp.middlename}`;
-
-        if(dsComp.jobStatus.length > 4){
-            if(dsComp.firstname.length > 2){
-                if(dsComp.middlename.length > 1){
-                    if(dsComp.lastname.length > 2){
-                        if(dsComp.mobileNumber.length > 8){
-                            if(dsComp.email.length > 4){
-                                if(dsComp.motive.length > 17){
-                                    if(files){
-                                        if(dsComp.tac){
-                                            if(dsComp.pp){
-                                                dsComp.loader = true;
-                                                const uploadFile = await supabase.storage.from("annap_bucket").upload(`inquire/${uid}`, files[0]);
-                                                if(uploadFile.data){
-                                                    const getLink = supabase.storage.from("annap_bucket").getPublicUrl(uploadFile.data.path);
-                                                    if(getLink.data.publicUrl){
-                                                        const insertInquire = await supabase.from("inquire_now_tb").insert({
-                                                            uid: uid,
-                                                            motive: dsComp.motive,
-                                                            fullname: fullname,
-                                                            address: dsComp.address,
-                                                            mobile_number: dsComp.mobileNumber,
-                                                            email: dsComp.email,
-                                                            job_status: dsComp.jobStatus,
-                                                            file_link: getLink.data.publicUrl,
-                                                        })
-
-                                                        dsComp.loader = false;
-                                                        createToast("Your Information Uploaded!", false);
-                                                    }
-                                                }else if(uploadFile.error){
-                                                    createToast(uploadFile.error.message, true);
-                                                    dsComp.loader = false;
-                                                }
-                                            }else{
-                                                createToast("You must agree Privacy Policy!", true)
-                                            }
-                                        }else{
-                                            createToast("You must agree Terms and Conditions!", true);
-                                        }
-                                    }else{
-                                        createToast("You must upload the annapolis file!", true)
-                                    }
-                                }else{
-                                    createToast("Invalid Motive", true);
-                                }
-                            }else{
-                                createToast("Invalid Email", true);
-                            }
-                        }else{
-                            createToast("Invalid Mobile Number", true);
-                        }
-                    }else{
-                        createToast("Invalid Last Name", true);
-                    }
-                }else{
-                    createToast("Invalid Middle Name", true);
-                }
-            }else{
-                createToast("Invalid First Name", true);
-            }
-        }else{
-            createToast("Invalid Job Status", true);
-        }
+        
     }
-
 
     const step1Href = "https://docs.google.com/forms/d/14wj2Y8WtFOJrrGV5mVus5xFJsIDXAtHUagcRjwMemy0/viewform?edit_requested=true&pli=1#settings";
     const step2Href = "https://www.mediafire.com/file/bof1v0jwu7rx0mm/NEW-APP-FORM-2023.xlsx/file";
@@ -126,46 +51,129 @@
     <h2 class="h2 text-center pt-10 font-serif font-bold">Loan Agent Career</h2>
 
     <div class="flex flex-col gap-2 lg:flex-row justify-center mt-5">
-        <div class="card p-10 flex flex-col gap-2 shadow-sm shadow-black">
-            <div class="flex flex-col gap-2"> 
-                <h4 class="h4 font-serif font-semibold">Description</h4>
-                <div class="p-2 ">
-                    <p>✔ Work Anytime Anywhere</p>
-                    <p>✔ No Qualifications</p>
-                    <p>✔ With free orientation</p>
-                    <p>✔ With additional incetive</p>
-                </div>
-            </div>
-    
+  
+        <div class="card p-2 lg:p-10 flex flex-col gap-2 shadow-sm shadow-black">
             <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-semibold">Contacts</h4>
+                <h4 class="h4 font-serif font-bold">Step 1</h4>
                 <div class="p-2">
-                    <p class="font-semibold">Email:</p>
-                    <p class="underline text-blue-500 hover:text-red-500"><a href="mailto: mainannapolisfinance@gmail.com">mainannapolisfinance@gmail.com</a></p>
-                    <p class="font-semibold">Contact No:</p>
-                    <p class="">09159592858 / 09564280526</p>
+                    <p class="pb-5">Fill up this Agent Accreditation Form</p>
+
+                    <div class="flex flex-col lg:flex-row lg:gap-2">
+                        <label>
+                            <p class="font-bold">First Name:</p>
+                            <input type="text" class="input rounded-none" />
+                        </label>
+
+                        <label>
+                            <p class="font-bold">Middle Name:</p>
+                            <input type="text" class="input rounded-none" />
+                        </label>
+
+                        <label>
+                            <p class="font-bold">Last Name:</p>
+                            <input type="text" class="input rounded-none" />
+                        </label>
+                    </div>
+
+                    <label>
+                        <p class="font-bold">Present Address:</p>
+                        <input type="text" class="input rounded-none" />
+                    </label>
+
+                    <div class="flex flex-col lg:flex-row gap-2">
+                        <label class="w-full">
+                            <p class="font-bold">Date of Birth:</p>
+                            <input type="date" class="input rounded-none" />
+                        </label>
+
+                        <label class="w-full">
+                            <p class="font-bold">Civil Status:</p>
+                            <select class="select rounded-none">
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Widowed</option>
+                                <option>Divorced</option>
+                                <option>Separated</option>
+                            </select>
+                        </label>
+
+                        <label class="w-full">
+                            <p class="font-bold">Gender:</p>
+                            <select class="select rounded-none">
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>LGBTQIA+</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row lg:gap-2">
+
+                        <label class="w-full">
+                            <p class="font-bold">Contact Number:</p>
+                            <input type="text" class="input rounded-none" />
+                        </label>
+                        
+                        <label class="w-full">
+                            <p class="font-bold">Email:</p>
+                            <input type="email" class="input rounded-none" />
+                        </label>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row lg:gap-2">
+                        
+
+                        <label class="w-full">
+                            <p class="font-bold">Facebook Account Link:</p>
+                            <input type="email" class="input rounded-none" />
+                        </label>
+                        
+                        <label class="w-full">
+                            <p class="font-bold">G-Cash Number:</p>
+                            <input type="email" class="input rounded-none" placeholder="Fully verified" />
+                        </label>
+                    </div>
+
+                    <label class="w-full">
+                        <p class="font-bold">Bank Name:</p>
+                        <input type="email" class="input rounded-none" placeholder="Put N/A if not applicable" />
+                    </label>
+
+                    <label class="w-full">
+                        <p class="font-bold">Bank Account:</p>
+                        <input type="email" class="input rounded-none" placeholder="Put N/A if not applicable" />
+                    </label>
+
+                    <label class="w-full">
+                        <p class="font-bold">Company Name:</p>
+                        <input type="email" class="input rounded-none" placeholder="" />
+                    </label>
+
+                    <div class="flex flex-col lg:flex-row lg:gap-2">
+
+                        <label class="w-full">
+                            <p class="font-bold">Employment Status:</p>
+                            <select class="select rounded-none">
+                                <option>Employed</option>
+                                <option>Self-Employed</option>
+                                <option>Retired</option>
+                                <option>Student</option>
+                            </select>
+                        </label>
+                        
+                        <label class="w-full">
+                            <p class="font-bold">Position:</p>
+                            <input type="text" class="input rounded-none" />
+                        </label>
+                    </div>
+
+                    
+
                 </div>
             </div>
     
             <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-semibold">Job Locations</h4>
-                <div class="p-2">
-                    <p>Unit 1508, 15th Floor, Jollibee Plaza Condominium, Junior Rd., Ortigas, Pasig City</p>
-                </div>
-            </div>
-        </div>
-    
-        <div class="card p-10 flex flex-col gap-2 shadow-sm shadow-black">
-            <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-semibold">Step 1</h4>
-                <div class="p-2">
-                    <p>Fill up this Agent Accreditation Form using Google Form.</p>
-                    <a href={step1Href} target="_blank" class="text-blue-500 underline hover:text-red-500">Agent Accreditation Form</a>
-                </div>
-            </div>
-    
-            <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-semibold">Step 2</h4>
+                <h4 class="h4 font-serif font-bold">Step 2</h4>
                 <div class="p-2">
                     <p>Download the Application form and fill up the form.</p>
                     <a href={step2Href} target="_blank" class="text-blue-500 underline hover:text-red-500">Download Form</a>
@@ -209,5 +217,38 @@
                 </div>
             </div>
         </div>
+        
     </div>
+
+
+    <div class="flex flex-col lg:flex-row justify-evenly mt-10 border-t-[0.1rem] border-slate-500">
+        <div class="p-4">
+            <h4 class="h4 font-bold">Description</h4>
+            <div class="p-2">
+                <p>✔ Work Anytime Anywhere</p>
+                <p>✔ No Qualifications</p>
+                <p>✔ With free orientation</p>
+                <p>✔ With additional incetive</p>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <h4 class="h4 font-bold">Contacts</h4>
+            <div class="p-2">
+                <p class="font-semibold">Email:</p>
+                <p class="underline text-blue-500 hover:text-red-500"><a href="mailto: mainannapolisfinance@gmail.com">mainannapolisfinance@gmail.com</a></p>
+                <p class="font-semibold">Contact No:</p>
+                <p class="">09159592858 / 09564280526</p>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <h4 class="h4 font-bold">Job Locations</h4>
+            <div class="p-2">
+                <p>Unit 1508, 15th Floor, Jollibee Plaza Condominium, Junior Rd., Ortigas, Pasig City</p>
+            </div>
+        </div>
+    </div>
+
+    
 </div>
