@@ -7,9 +7,31 @@
     import googleIcon from "$lib/Images/TalkWithAdmins/google.svg";
     import twitterIcon from "$lib/Images/TalkWithAdmins/twitter.svg";
 
-    onMount(() => {
-        $statics.navActiveItem = "/Talk-With-Us"
+    import { supabase } from "$lib/DB/supabaseConfig";
+
+    onMount( async () => {
+        $statics.navActiveItem = "/Talk-With-Us";
+        
+        const {data, error} = await supabase.auth.getUser();
+        console.log(data)
+
+       
+
     })
+
+    const fbLoginHandler = async () =>
+    {
+        const {data, error} = await supabase.auth.signInWithOAuth({
+            provider: "facebook"
+        })
+
+        if(error){
+            console.log(error.message)
+        }else if(data){
+            console.log("This is the provider", data.provider);
+            console.log("This is the url", data.url);
+        }
+    }
 </script>
 
 <div class="md:max-w-lg mx-auto ">
@@ -52,7 +74,9 @@
                 <p class="font-bold">Twitter</p>
             </button>
 
-            <button class="p-2 input rounded-2xl hover:shadow-lg shadow-black flex items-start gap-2 justify-center">
+            <button class="p-2 input rounded-2xl hover:shadow-lg shadow-black flex items-start gap-2 justify-center"
+            on:click={fbLoginHandler}
+            >
                 <img loading="eager" src={fbIcon} alt="" class="w-5" />
                 <p class="font-bold">Facebook</p>
             </button>
