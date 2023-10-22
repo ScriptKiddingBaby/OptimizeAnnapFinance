@@ -183,46 +183,46 @@
         <a href="/Career" class="underline hover:text-red-500"><p class="font-semibold">Back to <b class="text-slate-500 font-normal">Career</b></p>  </a>
     </div>
 
-    <h2 class="h2 text-center pt-10 font-serif font-bold">Loan Agent Career</h2>
+    <h2 class="h2 text-center pt-10 font-bold">Loan Agent Career</h2>
 
-    <div class="flex flex-col gap-2 lg:flex-row justify-center mt-5">
+    <div class="flex flex-col gap-2 lg:flex-row mt-5 sm:max-w-3xl mx-auto">
   
         <div class="card p-2 lg:p-10 flex flex-col gap-2 shadow-sm shadow-black">
             <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-bold">Step 1</h4>
+                <h4 class="h4 font-bold">Step 1</h4>
                 <div class="p-2">
                     <p class="pb-5">Fill up this Agent Accreditation Form</p>
 
                     <div class="flex flex-col lg:flex-row lg:gap-2">
                         <label>
-                            <p class="font-bold">First Name:</p>
+                            <b>First Name:</b>
                             <input type="text" class="input rounded-none" bind:value={dsComp.firstName}/>
                         </label>
 
                         <label>
-                            <p class="font-bold">Middle Name:</p>
+                            <b>Middle Name:</b>
                             <input type="text" class="input rounded-none" bind:value={dsComp.middleName}/>
                         </label>
 
                         <label>
-                            <p class="font-bold">Last Name:</p>
+                            <b>Last Name:</b>
                             <input type="text" class="input rounded-none" bind:value={dsComp.lastName}/>
                         </label>
                     </div>
 
                     <label>
-                        <p class="font-bold">Present Address:</p>
+                        <b>Present Address:</b>
                         <input type="text" class="input rounded-none" bind:value={dsComp.presentAddress}/>
                     </label>
 
                     <div class="flex flex-col lg:flex-row gap-2">
                         <label class="w-full">
-                            <p class="font-bold">Date of Birth:</p>
+                            <b>Date of Birth:</b>
                             <input type="date" class="input rounded-none" bind:value={dsComp.dateOfBirth}/>
                         </label>
 
                         <label class="w-full">
-                            <p class="font-bold">Civil Status:</p>
+                            <b>Civil Status:</b>
                             <select class="select rounded-none" bind:value={dsComp.civilStatus}>
                                 <option>Single</option>
                                 <option>Married</option>
@@ -233,7 +233,7 @@
                         </label>
 
                         <label class="w-full">
-                            <p class="font-bold">Gender:</p>
+                            <b>Gender:</b>
                             <select class="select rounded-none" bind:value={dsComp.gender}>
                                 <option>Male</option>
                                 <option>Female</option>
@@ -245,12 +245,12 @@
                     <div class="flex flex-col lg:flex-row lg:gap-2">
 
                         <label class="w-full">
-                            <p class="font-bold">Contact Number:</p>
+                            <b>Contact Number:</b>
                             <input type="text" class="input rounded-none" bind:value={dsComp.contactNumb}/>
                         </label>
                         
                         <label class="w-full">
-                            <p class="font-bold">Email:</p>
+                            <b>Email:</b>
                             <input type="email" class="input rounded-none" bind:value={dsComp.email}/>
                         </label>
                     </div>
@@ -259,35 +259,35 @@
                         
 
                         <label class="w-full">
-                            <p class="font-bold">Facebook Account Link:</p>
+                            <b>Facebook Account Link:</b>
                             <input type="email" class="input rounded-none" bind:value={dsComp.facebookLink}/>
                         </label>
                         
                         <label class="w-full">
-                            <p class="font-bold">G-Cash Number:</p>
+                            <b>G-Cash Number:</b>
                             <input type="email" class="input rounded-none" placeholder="Fully verified" bind:value={dsComp.gCashNumb}/>
                         </label>
                     </div>
 
                     <label class="w-full">
-                        <p class="font-bold">Bank Name:</p>
+                        <b>Bank Name:</b>
                         <input type="email" class="input rounded-none" placeholder="Put N/A if not applicable" bind:value={dsComp.bankName}/>
                     </label>
 
                     <label class="w-full">
-                        <p class="font-bold">Bank Account:</p>
+                        <b>Bank Account:</b>
                         <input type="email" class="input rounded-none" placeholder="Put N/A if not applicable" bind:value={dsComp.bankAccount}/>
                     </label>
 
                     <label class="w-full">
-                        <p class="font-bold">Company Name:</p>
+                        <b>Company Name:</b>
                         <input type="email" class="input rounded-none" placeholder="" bind:value={dsComp.companyName}/>
                     </label>
 
                     <div class="flex flex-col lg:flex-row lg:gap-2">
 
                         <label class="w-full">
-                            <p class="font-bold">Employment Status:</p>
+                            <b>Employment Status:</b>
                             <select class="select rounded-none" bind:value={dsComp.employmentStatus}>
                                 <option>Employed</option>
                                 <option>Self-Employed</option>
@@ -297,7 +297,7 @@
                         </label>
                         
                         <label class="w-full">
-                            <p class="font-bold">Position:</p>
+                            <b>Position:</b>
                             <input type="text" class="input rounded-none" bind:value={dsComp.position}/>
                         </label>
                     </div>
@@ -308,7 +308,7 @@
             </div>
     
             <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-bold">Step 2</h4>
+                <h4 class="h4 font-bold">Step 2</h4>
                 <div class="p-2">
                     <p>Download the Application form and fill up the form.</p>
                     <a href={step2Href} target="_blank" class="text-blue-500 underline hover:text-red-500">Download Form</a>
@@ -316,7 +316,7 @@
             </div>
     
             <div class="flex flex-col gap-2">
-                <h4 class="h4 font-serif font-bold">Step 3</h4>
+                <h4 class="h4 font-bold">Step 3</h4>
                 <div class="p-2 flex flex-col gap-4">
                     <div class="flex flex-col gap-1 w-full">
                         <FileDropzone accept="image/png, image/jpeg, application/pdf, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" name="loan-agent-career" width="px-2 py-0" bind:files />
@@ -356,7 +356,7 @@
     </div>
 
 
-    <div class="flex flex-col lg:flex-row justify-evenly mt-10 border-t-[0.1rem] border-slate-500">
+    <div class="flex flex-col lg:flex-row justify-evenly mt-10 border-t-[0.1rem] border-slate-500 bg-[#CBD5E1]">
         <div class="p-4">
             <h4 class="h4 font-bold">Description</h4>
             <div class="p-2">
