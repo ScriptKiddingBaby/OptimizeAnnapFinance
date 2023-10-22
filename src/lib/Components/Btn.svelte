@@ -10,16 +10,16 @@
     
 </script>
 
-<button class="active:scale-95 {pad} {bg} {w} {round} {textColor} transition-all hover:shadow-sm hover:shadow-black "
+<button class="active:scale-95 {pad} {bg} {w} {round} {textColor} transition-all hover:shadow-sm hover:shadow-black font-sans font-bold "
 disabled={loader}
 on:click
 >
     {#if loader}
         <div class="flex items-center justify-center gap-1">
-            <p>{loader_name}</p>
+            <p class="">{loader_name}</p>
             <div class="w-4 h-4 border-2 rounded-full animate-spin border-b-slate-400"></div>
         </div>
     {:else}
-        <p class="font-serif font-bold">{name}</p>
+        <p class="">{name}</p>
     {/if}
 </button>

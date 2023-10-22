@@ -29,6 +29,22 @@
     const dsComp = {
         loader: false,
         domMsg: "",
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        presentAddress: "",
+        dateOfBirth: "",
+        civilStatus: "",
+        gender: "",
+        contactNumb: "",
+        email: "",
+        facebookLink: "",
+        gCashNumb: "",
+        bankName: "",
+        companyName: "",
+        employmentStatus: "",
+        position: "",
+        
         
     }
 

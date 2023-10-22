@@ -20,7 +20,7 @@ on:click
 on:mouseenter
 >
     <div class="w-full">
-        <h4 class="font-serif h4">{name}</h4>
+        <h3 class="font-sans h3">{name}</h3>
         
     </div>
 
@@ -30,7 +30,7 @@ on:mouseenter
 </button>
 
 {#if open}
-    <div class="flex flex-col gap-2 p-2 bg-[#00000050] lg:fixed lg:bg-[#01009F] font-bold " >
+    <div class="flex flex-col gap-2 p-2 bg-[#00000050] lg:fixed lg:bg-[#01009F] " >
         {#each content as selection }
             <a href={selection.url} class="p-2 transition-all rounded-2xl hover:border-white hover:text-white hover:bg-[#FFFFFF50] lg:border-white" 
             class:active={$statics.navActiveItem === selection.url}
@@ -38,7 +38,7 @@ on:mouseenter
                 open = false;
                 $statics.showMenuMobile = false;
             }}
-            ><h4 class="font-serif h4">{selection.title}</h4></a>
+            ><h3 class="font-sans h3 font-bold">{selection.title}</h3></a>
         {/each}
     </div>
 {/if}

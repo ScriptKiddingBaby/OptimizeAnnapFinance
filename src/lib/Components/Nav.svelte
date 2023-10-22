@@ -91,15 +91,19 @@
                 }}
     
                 on:click={() => handleSelection(selection)}
-                ><h4 class="font-serif h4">{selection.title}</h4></a>
+                ><h3 class="font-sans h3">{selection.title}</h3></a>
             {/each}
             
             <div class="">
-                <Accordion bg="bg-[#01009F]" content={$navigation.location} textColor="text-white font-bold  hover:rounded-2xl" bind:this={locationAccordDesktop} name="Location" on:mouseenter={handleLocationAccordDesktop}/>
+                <Accordion bg="bg-[#01009F]" content={$navigation.location} textColor="text-white font-bold  hover:rounded-2xl" bind:this={locationAccordDesktop} 
+                name="Location" on:mouseenter={handleLocationAccordDesktop} on:click={handleLocationAccordDesktop}
+                
+                />
             </div>
     
             <div class="">
-                <Accordion bg="bg-[#01009F]" content={$navigation.loan} textColor="text-white font-bold  hover:rounded-2xl" bind:this={loanAccordDesktop} name="Loan" on:mouseenter={handleLoanAccordDesktop}/>
+                <Accordion bg="bg-[#01009F]" content={$navigation.loan} textColor="text-white font-bold  hover:rounded-2xl" bind:this={loanAccordDesktop} 
+                name="Loan" on:mouseenter={handleLoanAccordDesktop} on:click={handleLoanAccordDesktop}/>
             </div>
         </div>
     </div>
@@ -133,7 +137,7 @@
                 <a href={selection.url} class="p-2 font-bold transition-all" 
                 on:click={() => $statics.showMenuMobile = false}
                 class:active={$statics.navActiveItem === selection.url}
-                ><h4 class="font-serif h4">{selection.title}</h4></a>
+                ><h3 class="font-sans h3">{selection.title}</h3></a>
             {/each}
         </div>
     </div>

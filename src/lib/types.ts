@@ -79,3 +79,4 @@ export type UnitsTypes = {
     img_url: string
     
 }
+
