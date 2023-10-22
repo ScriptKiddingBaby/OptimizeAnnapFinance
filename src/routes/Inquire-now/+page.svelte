@@ -121,8 +121,6 @@
     const secondLoop = ["Sangla ORCR Motorcycle", "Sangla ORCR TRICYCLE", "Sangla ORCR Bigbike", "Finance Appliances", "Finance Iphone/Samsung"];
 </script>
 
-<Toast position="br" transitions={true} />
-
 <div class="p-2">
     <div class="flex flex-col lg:flex-row gap-4 lg:items-stretch">
         <div class="">

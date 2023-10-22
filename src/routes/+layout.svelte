@@ -6,7 +6,7 @@
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { LightSwitch, storePopup } from '@skeletonlabs/skeleton';
+	import { LightSwitch, Toast, storePopup } from '@skeletonlabs/skeleton';
 	import Footer from '$lib/Components/Footer.svelte';
 	import Nav from '$lib/Components/Nav.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
@@ -42,6 +42,7 @@
 	<PrompAdvisory />
 {/if}
 
+<Toast position="br" transitions={true} />
 <div class="fixed bottom-0 right-0 m-4">
 	<LightSwitch />
 </div>

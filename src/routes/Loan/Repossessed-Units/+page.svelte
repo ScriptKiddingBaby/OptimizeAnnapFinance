@@ -84,8 +84,6 @@
     }
 </script>
 
-<Toast position="br" transitions={true}/>
-
 <div class="flex flex-col gap-4">
     <div class=" mx-auto text-center pt-10">
         <h2 class="h2">Repossessed Units</h2>
