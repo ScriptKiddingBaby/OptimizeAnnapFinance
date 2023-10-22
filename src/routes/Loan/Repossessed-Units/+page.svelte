@@ -16,6 +16,16 @@
         loader: false,
         searchValue: "",
     }
+
+    const createToast = (msg: string, bg: string) =>
+    {
+        const t: ToastSettings = {
+            message: msg,
+            background: bg
+        };
+
+        toastStore.trigger(t);
+    }
     
 
     const handleSearch = async () => 
@@ -24,20 +34,16 @@
         const repoTable: PostgrestSingleResponse<UnitsTypes[]> = await supabase.from("repo_tb").select().ilike("name", `%${dsComp.searchValue}%`);
         if(repoTable.data){
             if(!repoTable.data[0]){
-                const t: ToastSettings = {
-                    message: `<p class="text-white font-semibold">No records found!</p>`,
-                    background: "bg-red-500"
-                };
-                toastStore.trigger(t);
+                
+                const htmlMsg = `<p class="text-black font-bold"> No records found. </p>`;
+                createToast(htmlMsg, "bg-red-500");
+
                 dsComp.loader = false;
 
             }else{
                 $statics.unitsArray = repoTable.data;
-                const t: ToastSettings = {
-                    message: `<p class="text-white font-semibold">We found ${$statics.unitsArray.length} ${$statics.unitsArray.length > 1 ? "Records" : "Record"} </p>`,
-                    background: "bg-green-400"
-                };
-                toastStore.trigger(t);
+                const htmlMsg = `<p class="text-black font-bold">We found ${$statics.unitsArray.length} ${$statics.unitsArray.length > 1 ? "Records" : "Record"} </p>`;
+                createToast(htmlMsg, "bg-[#0CFD0C]");
                 dsComp.loader = false;
             }
         }else if(repoTable.error){
@@ -53,11 +59,8 @@
            const repoTable: PostgrestSingleResponse<UnitsTypes[]> = await supabase.from("repo_tb").select("*");
            if(repoTable.data){
                 $statics.unitsArray = repoTable.data;
-                const t: ToastSettings = {
-                    message: `<p class="text-white font-semibold">Reloading Records Success!</p>`,
-                    background: "bg-green-400"
-                };
-                toastStore.trigger(t);
+                const htmlMsg = `<p class="text-black font-bold">Reloading Records Success!</p>`; 
+                createToast(htmlMsg, "bg-[#0CFD0C]");
                 dsComp.loader = false;
            }else if(repoTable.error){
                 console.log("PM eviotamikejohnb@gmail.com for fix :D");
@@ -72,21 +75,23 @@
     {
         const t: ToastSettings = {
             message: `
-                <p class="text-white font-semibold">Success!</p>
-                <p>Name: ${details.name} </p>
-                <p>Contact Number: ${details.contact_number} </p>
-                <p>Condition: ${details.condition} </p>
+                <div class="text-black font-sans">
+                    <p class="text-red-600 font-semibold">Success!</p>
+                    <p>Name: ${details.name} </p>
+                    <p>Contact Number: ${details.contact_number} </p>
+                    <p>Condition: ${details.condition} </p>
+                </div>
             `,
-            background: "bg-green-400"
+            background: "bg-[#0CFD0C]"
         };
         toastStore.trigger(t);
         dsComp.loader = false;
     }
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4 font-sans">
     <div class=" mx-auto text-center pt-10">
-        <h2 class="h2">Repossessed Units</h2>
+        <h2 class="h2 font-bold ">Repossessed Units</h2>
     </div>
 
     <div class="">

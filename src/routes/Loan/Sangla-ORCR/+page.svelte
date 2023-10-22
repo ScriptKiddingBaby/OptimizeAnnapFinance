@@ -10,9 +10,9 @@
     onMount(() => {$statics.navActiveItem = "/Loan/Sangla-ORCR"})
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4 font-sans">
     <div class="sm:max-w-xl mx-auto text-center pt-10">
-        <h2 class="h2">Sangla ORCR</h2>
+        <h2 class="h2 font-bold p-2">Sangla ORCR</h2>
         <p>ORCR Loans are protected by an asset or property of value pledged by a borrower in exchange for a loan. These loans are most commonly used for car registrations and land titles.</p>
     </div>
 
@@ -23,7 +23,7 @@
             </div>
 
             <div class="">
-                <h4 class="h4">Motorcycle (Sangla OR/CR)</h4>
+                <h4 class="h4 font-bold py-3">Motorcycle (Sangla OR/CR)</h4>
                 <p>No Hassle Cash Loan! Magpasa ka lang ng complete requirements sa Facebook Messenger pwede na mag apply!</p>
 
                 <div class="p-2">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="">
-                <h4 class="h4">Motorcycle (Sangla OR/CR)</h4>
+                <h4 class="h4 font-bold py-3">Motorcycle (Sangla OR/CR)</h4>
                 <p>Malapit na ang Due date ng bills? You can borrow money to meet your financial needs! SANGLA OR CR ng Motor Hindi kukunin ang unit!</p>
 
                 <div class="p-2">
