@@ -35,10 +35,13 @@
 </script>
 
 
+
 {#each $statics.locationRoutes as route, index}
 	{#if $statics.locComparison === index}
-		<div class="flex flex-col gap-4 break-words mx-auto">
-			<h2 class="h2">{$page.url.pathname.slice(10)}</h2>
+		<div class="flex flex-col gap-4 sm:max-w-7xl mx-auto">
+
+			<h2 class="h2 font-sans font-bold">{$page.url.pathname.slice(10)}</h2>
+
 			<div class="flex flex-col gap-2 md:flex-row">
 				<div class="w-full">
 					<img loading="eager" src={route.rowOne.image} alt="" class="h-[50vh] w-full" />
@@ -48,10 +51,12 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-2 md:flex-row text-sm justify-center">
+			<div class="flex flex-col gap-2 md:flex-row">
 				
-				<div class="card flex flex-col gap-2 p-4 w-full break-words overflow-auto">
-					<h4 class="h4">{route.rowTwo.innerRowOne.header}</h4>
+				<div class="card flex flex-col gap-4 p-4 w-full font-sans">
+
+					<h4 class="h4 font-bold font-sans py-4">{route.rowTwo.innerRowOne.header}</h4>
+
 					<div class="flex items-center gap-2">
 						<div class="">
 							<img loading="eager" src={gps} alt="" class="w-8 rounded-full p-1" />
@@ -70,12 +75,12 @@
 
 					<div class="flex items-center gap-2">
 						<div class="">
-							<img loading="eager" src={facebook} alt="" class="w-8 rounded-full p-1" />
+							<img loading="eager" src={facebook} alt="" class="w-8 rounded-full" />
 						</div>
 						<a href={route.rowTwo.innerRowOne.facebook.link} target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.facebook.name}</a>
 					</div>
 
-					<div class="flex items-center gap-2 overflow-auto">
+					<div class="flex items-center gap-2 ">
 						<div class="">
 							<img loading="eager" src={email} alt="" class="w-8 rounded-full p-1" />
 						</div>
@@ -83,18 +88,20 @@
 						<a href="mailto: {route.rowTwo.innerRowOne.gmail}" target="_blank" class="hover:text-red-500 text-blue-500 underline ">{route.rowTwo.innerRowOne.gmail}</a>
 					</div>
 
-					<div class="card p-2 flex flex-col gap-2 shadow-sm shadow-black">
-						<h1 class="h1 text-center text-xs">WANT TO KNOW WHEN WE GOT NEWS ON OUR LATEST PRODUCT? SIGN UP FOR OUR NEWSLETTER NOW!</h1>
+					
+					<div class="card p-2 flex flex-col gap-2 shadow-sm shadow-black mt-6">
+						<h4 class="h4 text-center font-sans font-bold">WANT TO KNOW WHEN WE GOT NEWS ON OUR LATEST PRODUCT? SIGN UP FOR OUR NEWSLETTER NOW!</h4>
 						<input type="email" class="input px-2 py-0 md:py-2" placeholder="Enter your email to get latest news!"/>
 						<div class="max-w-fit mx-auto">
 							<Btn bg="bg-green-500" pad="px-10 py-1 md:py-2" round="rounded-lg" name="Send"/>
 						</div>
 					</div>
 					
+					
 				</div>
 				
-				<div class="card flex flex-col gap-2 p-4 w-full">
-					<h4 class="h4">{route.rowTwo.innerRowTwo.header}</h4>
+				<div class="card flex flex-col gap-4 p-4 w-full font-sans">
+					<h4 class="h4 font-bold font-sans py-4">{route.rowTwo.innerRowTwo.header}</h4>
 					<label>
 						<b>Choose one:</b>
 						<select class="select">
@@ -144,6 +151,7 @@
 		</div>
 	{/if}
 {/each}
+
 
 
 
