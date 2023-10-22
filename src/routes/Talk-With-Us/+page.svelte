@@ -32,9 +32,9 @@
     }
 </script>
 
-<div class="md:max-w-lg mx-auto ">
+<div class="md:max-w-lg mx-auto">
     <div class=" mt-10">
-        <h3 class="h3 text-center font-serif font-bold p-2">Talk With Admins</h3>
+        <h3 class="h3 text-center font-bold p-2 font-sans">Talk With Admins</h3>
         <div class="flex flex-col gap-2">
             <label>
                 <b>Email:</b>
@@ -53,8 +53,8 @@
     </div>
     
     
-    <div class="text-right mt-2">
-        <a href="/Talk-With-Us/Forgot-Password" class="text-blue-500 underline hover:text-red-500"><p>Forgot Password?</p></a>
+    <div class="text-right mt-4">
+        <p class="text-blue-500 underline hover:text-red-500"><a href="/Talk-With-Us/Forgot-Password" >Forgot Password?</a></p>
     </div>
     
     <div class="flex flex-col gap-2 mt-5">
@@ -80,7 +80,7 @@
             </button>
 
             <div class="mt-5">
-                <p class="text-center">You must have an acccount or able to login via social platforms listed above. Or <a href="/Talk-With-Us/Create-Account" class="text-blue-500 underline hover:text-red-500">Create Account</a></p>
+                <p class="text-center ">You must have an acccount or able to login via social platforms listed above. Or <a href="/Talk-With-Us/Create-Account" class="text-blue-500 underline hover:text-red-500">Create Account</a></p>
             </div>
     
     </div>
