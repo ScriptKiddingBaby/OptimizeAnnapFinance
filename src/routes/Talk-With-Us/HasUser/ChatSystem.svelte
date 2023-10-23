@@ -49,10 +49,10 @@
             </div>
         </div>
 
-        <div class="mt-5 card font-sans p-4">
+        <div class="mt-5 card font-sans p-4 bg-[#C0D9E1]">
             <div class="flex gap-2 items-center e">
                 <p class="font-bold w-full">Francis M Legit Father</p> 
-                <small class="opacity-50 w-full text-left"> 02:28 PM</small>
+                <small class="opacity-50 w-full text-right"> 02:28 PM</small>
             </div>
 
             <div class="p-4">
