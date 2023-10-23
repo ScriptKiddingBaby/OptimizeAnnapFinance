@@ -1,95 +1,41 @@
 <script lang="ts">
+    import Login from "./LoginComponents/Login.svelte";
+    import Register from "./LoginComponents/Register.svelte";
+    import ForgotPassword from "./LoginComponents/ForgotPassword.svelte";
+    import { onMount } from "svelte";
+
+    import { loginLogics } from "./LoginComponents/loginStore";
 	import { statics } from "$lib";
-	import Btn from "$lib/Components/Btn.svelte";
-	import { onMount } from "svelte";
-
-    import fbIcon from "$lib/Images/TalkWithAdmins/facebook.svg";
-    import googleIcon from "$lib/Images/TalkWithAdmins/google.svg";
-    import twitterIcon from "$lib/Images/TalkWithAdmins/twitter.svg";
-
     import { supabase } from "$lib/DB/supabaseConfig";
+	import ChatSystem from "./HasUser/ChatSystem.svelte";
 
-    onMount( async () => {
+    supabase.auth.onAuthStateChange( (event, session) => {
+        if(event === "SIGNED_IN"){
+            $loginLogics.hasUser = true;
+        }else if(event === "SIGNED_OUT"){
+            $loginLogics.hasUser = false;
+        }
+    })
+
+    onMount(() => {
         $statics.navActiveItem = "/Talk-With-Us";
-        
-        const {data, error} = await supabase.auth.getUser();
-        console.log(data)
 
     })
 
-    const fbLoginHandler = async () =>
-    {
-        const {data, error} = await supabase.auth.signInWithOAuth({
-            provider: "facebook"
-        })
-
-        if(error){
-            console.log(error.message)
-        }else if(data){
-            console.log("This is the provider", data.provider);
-            console.log("This is the url", data.url);
-        }
-    }
 </script>
 
-<div class="md:max-w-lg mx-auto">
-    <div class=" mt-10">
-        <h3 class="h3 text-center font-bold p-2 font-sans">Talk With Admins</h3>
-        <div class="flex flex-col gap-2">
-            <label>
-                <b>Email:</b>
-                <input type="text" class="input rounded-lg" />
-            </label>
+<div class="mx-auto sm:max-w-xl mt-20 bg-white rounded-xl p-4 sm:p-10">
+    {#if $loginLogics.hasUser}
+        <ChatSystem />
+    {:else}
+        {#if $loginLogics.showRegister}
+            <Register />
+        {:else if $loginLogics.showForgotPassword}
+            <ForgotPassword />
+        {:else}
+            <Login />
+        {/if}
+    {/if}
 
-            <label>
-                <b>Password:</b>
-                <input type="password" class="input rounded-lg" />
-            </label>
-
-            
-            <Btn round="rounded-lg" name="Login"/>
-            
-        </div>
-    </div>
-    
-    
-    <div class="text-right mt-4">
-        <p class="text-blue-500 underline hover:text-red-500"><a href="/Talk-With-Us/Forgot-Password" >Forgot Password?</a></p>
-    </div>
-    
-    <div class="flex flex-col gap-2 mt-5">
-        <p class="font-bold text-center">or log in with</p>
-        
-       
-            
-            <button class="p-2 input rounded-2xl hover:shadow-lg shadow-black flex items-start gap-2 justify-center">
-                <img loading="eager" src={googleIcon} alt="" class="w-5" />
-                <p class="font-bold">Google</p>
-            </button>
-
-            <button class="p-2 input rounded-2xl hover:shadow-lg shadow-black flex items-start gap-2 justify-center">
-                <img loading="eager" src={twitterIcon} alt="" class="w-5" />
-                <p class="font-bold">Twitter</p>
-            </button>
-
-            <button class="p-2 input rounded-2xl hover:shadow-lg shadow-black flex items-start gap-2 justify-center"
-            on:click={fbLoginHandler}
-            >
-                <img loading="eager" src={fbIcon} alt="" class="w-5" />
-                <p class="font-bold">Facebook</p>
-            </button>
-
-            <div class="mt-5">
-                <p class="text-center ">You must have an acccount or able to login via social platforms listed above. Or <a href="/Talk-With-Us/Create-Account" class="text-blue-500 underline hover:text-red-500">Create Account</a></p>
-            </div>
-    
-    </div>
-
-    
-   
-
-    
-    
-        
     
 </div>

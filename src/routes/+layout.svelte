@@ -43,9 +43,6 @@
 {/if}
 
 <Toast position="br" transitions={true} />
-<div class="fixed bottom-0 right-0 m-4">
-	<LightSwitch />
-</div>
 
 <div class="text-black text-base">
 	
