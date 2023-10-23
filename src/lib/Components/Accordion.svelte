@@ -20,7 +20,7 @@ on:click
 on:mouseenter
 >
     <div class="w-full">
-        <h3 class="font-sans h3">{name}</h3>
+        <h6 class="font-sans font-bold h5">{name}</h6>
         
     </div>
 
@@ -38,7 +38,7 @@ on:mouseenter
                 open = false;
                 $statics.showMenuMobile = false;
             }}
-            ><h3 class="font-sans h3 font-bold">{selection.title}</h3></a>
+            ><h6 class="font-sans h6 font-bold">{selection.title}</h6></a>
         {/each}
     </div>
 {/if}

@@ -1,5 +1,5 @@
 import {writable} from "svelte/store";
-import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes } from "./types";
+import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes, ChatTypes } from "./types";
 
 import headBanner from "$lib/Images/Location/HeadOffice/officeBanner.webp";
 import antipoloBanner from "$lib/Images/Location/AntipoloOffice/antipoloBanner.webp";
@@ -407,4 +407,9 @@ export const statics = writable({
     showMenuMobile: false,
 
     unitsArray:<UnitsTypes[]> [],
+})
+
+export const authenticated = writable({
+    chatsArray:<ChatTypes[]> [],
+    uid: "",
 })

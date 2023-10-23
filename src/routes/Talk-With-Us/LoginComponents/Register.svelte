@@ -5,6 +5,7 @@
 
     import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 	import { supabase } from "$lib/DB/supabaseConfig";
+	import type { UserResponse } from "@supabase/supabase-js";
     const toastStore = getToastStore();
 	
     const createToast = (msg: string, bg: string) =>
@@ -37,7 +38,16 @@
                         dsComp.loader = false;
                     }else if(signUp?.data.user){
                         createToast("Successfully Created an Account", "bg-green-500");
-                        dsComp.loader = false;
+                        const info: UserResponse = await $loginLogics.getUser();
+                        if(info.data.user){
+                            const insertUser = await supabase.from("normal_users").insert({
+                                uid: info.data.user.id,
+                                display_name: info.data.user.user_metadata.displayName,
+                                email: info.data.user.email,
+                            });
+                            dsComp.loader = false;
+                        }
+                        
                     }
                 }else{
                     createToast("Password not same", "bg-red-500");

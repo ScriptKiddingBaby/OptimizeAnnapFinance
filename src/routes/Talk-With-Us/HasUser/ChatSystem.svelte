@@ -4,7 +4,27 @@
 	import Btn from "$lib/Components/Btn.svelte";
 
     import { loginLogics } from "../LoginComponents/loginStore";
+    import { authenticated } from "$lib";
+	import { supabase } from "$lib/DB/supabaseConfig";
 
+    console.log($authenticated.uid)
+    const chatSystem = supabase.channel('custom-all-channel')
+    .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'chat_system' },
+        async (payload) => 
+        {
+            const {data, error:err} = await supabase.from("chat_system").select("*").eq("owner_uid", "")
+        }
+    )
+    .subscribe();
+
+
+    
+
+    
+
+    
 </script>
 
 <div class="">
@@ -30,8 +50,8 @@
         </div>
 
         <div class="mt-5 card font-sans p-4">
-            <div class="flex gap-2 items-center flex-row-reverse">
-                <p class="font-bold w-full text-right">Francis M Legit Father</p> 
+            <div class="flex gap-2 items-center e">
+                <p class="font-bold w-full">Francis M Legit Father</p> 
                 <small class="opacity-50 w-full text-left"> 02:28 PM</small>
             </div>
 

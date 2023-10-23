@@ -91,7 +91,7 @@
                 }}
     
                 on:click={() => handleSelection(selection)}
-                ><h3 class="font-sans h3">{selection.title}</h3></a>
+                ><h5 class="font-sans font-bold h5">{selection.title}</h5></a>
             {/each}
             
             <div class="">
@@ -137,7 +137,7 @@
                 <a href={selection.url} class="p-2 font-bold transition-all" 
                 on:click={() => $statics.showMenuMobile = false}
                 class:active={$statics.navActiveItem === selection.url}
-                ><h3 class="font-sans h3">{selection.title}</h3></a>
+                ><h5 class="font-sans font-bold h5">{selection.title}</h5></a>
             {/each}
         </div>
     </div>

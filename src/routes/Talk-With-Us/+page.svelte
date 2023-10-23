@@ -5,15 +5,21 @@
     import { onMount } from "svelte";
 
     import { loginLogics } from "./LoginComponents/loginStore";
-	import { statics } from "$lib";
+	import { authenticated, statics } from "$lib";
     import { supabase } from "$lib/DB/supabaseConfig";
 	import ChatSystem from "./HasUser/ChatSystem.svelte";
 
-    supabase.auth.onAuthStateChange( (event, session) => {
+    supabase.auth.onAuthStateChange( async (event, session) => {
         if(event === "SIGNED_IN"){
-            $loginLogics.hasUser = true;
+            
+            const getUser = await $loginLogics.getUser();
+            if(getUser.data.user){
+                $authenticated.uid = getUser.data.user?.id;
+                $loginLogics.hasUser = true;
+            }
         }else if(event === "SIGNED_OUT"){
             $loginLogics.hasUser = false;
+            $authenticated.uid = "";
         }
     })
 

@@ -80,3 +80,11 @@ export type UnitsTypes = {
     
 }
 
+
+export type ChatTypes = {
+    id: number
+    created_at: string
+    messages: string
+    display_name: string
+    owner_uid: string
+}
