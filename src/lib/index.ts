@@ -7,6 +7,7 @@ import bulacanBanner from "$lib/Images/Location/BulacanOffice/bulacanBanner.webp
 import caviteBanner from "$lib/Images/Location/CaviteOffice/caviteBanner.webp";
 import paranaqueBanner from "$lib/Images/Location/ParanaqueOffice/paranaqueBanner.webp";
 import pasigBanner from "$lib/Images/Location/PasigOffice/pasigBanner.webp";
+import type { User } from "@supabase/supabase-js";
 
 
 // navigation
@@ -411,5 +412,5 @@ export const statics = writable({
 
 export const authenticated = writable({
     chatsArray:<ChatTypes[]> [],
-    uid: "",
+    userObject:<User | undefined> {},
 })
