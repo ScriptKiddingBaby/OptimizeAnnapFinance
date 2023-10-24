@@ -6,6 +6,7 @@
     import { getToastStore, type ToastSettings } from "@skeletonlabs/skeleton";
 	import { supabase } from "$lib/DB/supabaseConfig";
 	import { goto } from "$app/navigation";
+	import { statics } from "$lib";
 
     const toastStore = getToastStore();
 
@@ -36,7 +37,9 @@
         });
 
         if(data.user){
-            dsComp.loader = false;
+
+            $statics.userObject = data.user;
+            
             const res = await fetch("/Talk-With-Us/Login", {
                 method: "POST",
                 headers: {
@@ -48,7 +51,8 @@
             })
 
             if(await res.json() === "success"){
-                goto("/Talk-With-Us/User")
+                goto("/Talk-With-Us/User");
+                dsComp.loader = false;
             }
 
         }else if(err){

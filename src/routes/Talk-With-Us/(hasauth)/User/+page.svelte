@@ -1,8 +1,26 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import Btn from "$lib/Components/Btn.svelte";
+    import { statics } from "$lib";
+    import { convertDate } from "./generator";
+
 	import { supabase } from "$lib/DB/supabaseConfig";
 	import { getToastStore, type ToastSettings } from "@skeletonlabs/skeleton";
+	import { onMount } from "svelte";
+	import type { User } from "@supabase/supabase-js";
+
+    const handleFetch = async () =>
+    {
+        const {data, error:err} = await supabase.from("chat_system_tb").select("*").eq("owner_uid", $statics.userObject.id);
+
+        $statics.chatArray = data as any[];
+    }
+
+    onMount( async () => {
+        const getUser = await supabase.auth.getUser();
+        $statics.userObject = getUser.data.user as User;
+        handleFetch();
+    })
 
     const toastStore = getToastStore();
 
@@ -18,7 +36,21 @@
 
     const dsComp = {
         loader: false,
+        sendLoader: false,
+        chatValue: "",
     }
+
+
+    
+    const chatSystemTb = supabase.channel('custom-all-channel')
+    .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'chat_system_tb' },
+        (payload) => {
+            handleFetch();
+        }
+    )
+    .subscribe()
 
     const logoutHandler = async () => 
     {
@@ -41,6 +73,23 @@
         }
     }
 
+    const handleChat = async () => 
+    {
+        dsComp.sendLoader = true;
+        const {error:err} = await supabase.from("chat_system_tb").insert({
+            owner_uid: $statics.userObject.id,
+            display_name: $statics.userObject.user_metadata.display_name,
+            messages: dsComp.chatValue
+        })
+        if(err){
+            dsComp.sendLoader = false;
+            createToast(`Error at db location handle chat`, "bg-red-500");
+        }else{
+            dsComp.sendLoader = false;
+            dsComp.chatValue = "";
+        }
+    }
+
 </script>
 
 <div class="mx-auto sm:max-w-xl">
@@ -48,35 +97,44 @@
         <div class="max-w-fit">
             <Btn pad="px-2 py-1" bg="bg-red-500" round="rounded-lg" name="Logout" loader={dsComp.loader} loader_name="drinking beer." on:click={logoutHandler}/>
         </div>
-        <h4 class="h4 font-sans text-center">Hello sample name</h4>
+        <h4 class="h4 font-sans text-center">Hello {$statics.userObject.email}</h4>
 
-        <div class="min-h-[60vh] border-[0.1rem] border-[#EA861A] p-2">
-            <div class="card p-2">
-                <div class="flex">
-                    <h6 class="h6 font-bold w-full font-sans">Peter</h6>
-                    <p class="font-sans w-full font-semibold text-right opacity-50">09:42 PM</p>
-                </div>
+        <div class="max-h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-auto">
+            {#each $statics.chatArray as chats}
+                <div class="card variant-outline-secondary p-2">
+                    <div class="flex">
+                        <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
+                        <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
+                    </div>
 
-                <div class="p-2">
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo iste nostrum vero eligendi provident unde et modi architecto eius facere.
-                    </p>
+                    <div class="p-2">
+                        <p>{chats.messages}</p>
+                    </div>
                 </div>
-            </div>
+            {/each}
+            
         </div>
 
         
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] rounded-container-token mt-2">
             <button class="input-group-shim">+</button>
             <textarea
-                
+                bind:value={dsComp.chatValue}
                 class="bg-transparent border-0 ring-0"
                 name="prompt"
                 id="prompt"
                 placeholder="Write a message..."
                 rows="1"
             />
-            <button class="variant-filled-primary">Send</button>
+            <button class="variant-filled-primary"
+            on:click={handleChat}
+            >
+                {#if dsComp.sendLoader}
+                    Sending
+                {:else}
+                    Send
+                {/if}
+            </button>
         </div>
 					
     </div>

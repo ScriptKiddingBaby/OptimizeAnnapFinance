@@ -411,6 +411,8 @@ export const statics = writable({
     locComparison: 0.1,
     showMenuMobile: false,
 
+    chatArray:<ChatTypes[]> [],
+    userObject:<User> {},
     unitsArray:<UnitsTypes[]> [],
 })
 
@@ -418,3 +420,4 @@ export const authenticated = writable({
     chatsArray:<ChatTypes[]> [],
     userObject:<User | undefined> {},
 })
+
