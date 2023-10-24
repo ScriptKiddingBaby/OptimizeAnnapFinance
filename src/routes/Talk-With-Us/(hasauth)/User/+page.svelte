@@ -90,6 +90,11 @@
         }
     }
 
+    const checkText = () =>
+    {
+        
+    }
+
 </script>
 
 <div class="mx-auto sm:max-w-xl">
@@ -99,19 +104,23 @@
         </div>
         <h4 class="h4 font-sans text-center">Hello {$statics.userObject.email}</h4>
 
-        <div class="max-h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-auto">
-            {#each $statics.chatArray as chats}
-                <div class="card variant-outline-secondary p-2">
-                    <div class="flex">
-                        <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
-                        <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
-                    </div>
+        <div class="max-h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll ">
+            {#if $statics.chatArray.length}
+                {#each $statics.chatArray as chats}
+                    <div class="card variant-outline-secondary p-2">
+                        <div class="flex">
+                            <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
+                            <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
+                        </div>
 
-                    <div class="p-2">
-                        <p>{chats.messages}</p>
+                        <div class="p-2">
+                            <p>{chats.messages}</p>
+                        </div>
                     </div>
-                </div>
-            {/each}
+                {/each}
+            {:else}
+                <p class="font-sans text-center text-green-800 p-4">No chat history.</p>
+            {/if}
             
         </div>
 
@@ -120,6 +129,7 @@
             <button class="input-group-shim">+</button>
             <textarea
                 bind:value={dsComp.chatValue}
+                on:keyup={checkText}
                 class="bg-transparent border-0 ring-0"
                 name="prompt"
                 id="prompt"
