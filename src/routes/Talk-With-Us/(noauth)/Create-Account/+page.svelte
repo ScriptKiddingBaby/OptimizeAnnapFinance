@@ -3,6 +3,7 @@
     import { fly } from "svelte/transition";
 	import { getToastStore, type ToastSettings } from "@skeletonlabs/skeleton";
 	import { supabase } from "$lib/DB/supabaseConfig";
+	import { goto } from "$app/navigation";
 
     const toastStore = getToastStore();
 
@@ -47,8 +48,24 @@
                         createToast(`${insert.error.message}`, "bg-red-500");
                         dsComp.loader = false;
                     }else {
-                        createToast("Account Created", "bg-green-500");
-                        dsComp.loader = false;
+
+                        const parse = JSON.parse(localStorage.getItem("sb-aritmjndldlhjuevgtiv-auth-token") as string)
+                        const res = await fetch("/Talk-With-Us/Create-Account", {
+                            method: "POST",
+                            headers: {
+                                "Authorization": `Bearer ${parse.access_token}`
+                            },
+                            body: JSON.stringify({
+                                authToken: parse.access_token
+                            })
+                        })
+
+                        if(await res.json() === "success"){
+                            createToast("Account Created", "bg-green-500");
+                            goto("/Talk-With-Us/User");
+                            dsComp.loader = false;
+                        }
+
                     }
                 }else if(error){
                     createToast(`${error.message}`, "bg-red-500");

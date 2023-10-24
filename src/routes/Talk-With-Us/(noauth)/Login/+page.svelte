@@ -2,8 +2,10 @@
 	import Btn from "$lib/Components/Btn.svelte";
 	import { fly } from "svelte/transition";
 
+
     import { getToastStore, type ToastSettings } from "@skeletonlabs/skeleton";
 	import { supabase } from "$lib/DB/supabaseConfig";
+	import { goto } from "$app/navigation";
 
     const toastStore = getToastStore();
 
@@ -32,14 +34,27 @@
             email: dsComp.email,
             password: dsComp.password
         });
-        
+
         if(data.user){
             dsComp.loader = false;
+            const res = await fetch("/Talk-With-Us/Login", {
+                method: "POST",
+                headers: {
+                    "authorization": `Bearer ${data.session.access_token}`
+                },
+                body: JSON.stringify({
+                    authToken: data.session.access_token
+                })
+            })
+
+            if(await res.json() === "success"){
+                goto("/Talk-With-Us/User")
+            }
+
         }else if(err){
             createToast(err.message, "bg-red-500");
             dsComp.loader = false;
         }
-        
     }
 
 
@@ -50,12 +65,12 @@
     <div class="flex flex-col gap-2">
         <label>
             <pre class="font-bold font-sans">Email:</pre>
-            <input type="email" class="input rounded-lg" />
+            <input type="email" class="input rounded-lg" bind:value={dsComp.email}/>
         </label>
     
         <label>
             <pre class="font-bold font-sans">Password:</pre>
-            <input type="email" class="input rounded-lg" />
+            <input type="password" class="input rounded-lg" bind:value={dsComp.password}/>
         </label>
     
         <Btn round="rounded-lg" name="Login" loader={dsComp.loader} loader_name="Logging." on:click={loginHandler} />
