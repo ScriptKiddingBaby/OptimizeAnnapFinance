@@ -17,8 +17,10 @@
     
     let loanAccord: any;
     let locationAccord: any;
+
     let loanAccordDesktop: any;
     let locationAccordDesktop: any;
+
 
     const dsComp = {
         showMenu: false,
@@ -31,12 +33,14 @@
     {
         loanAccord.open = !loanAccord.open;
         locationAccord.open = false;
+        
     }
 
     const handleLocationAccordMobile = () =>
     {
         locationAccord.open = !locationAccord.open;
         loanAccord.open = false;
+        
     }
 
     const handleLoanAccordDesktop = () =>
@@ -50,7 +54,6 @@
         locationAccordDesktop.open = !locationAccordDesktop.open;
         loanAccordDesktop.open = false;
     }
-
 
     //** function that handle route navigation */
     const handleSelection = (selection: NavigationRoutes) =>
@@ -91,7 +94,7 @@
                 }}
     
                 on:click={() => handleSelection(selection)}
-                ><h5 class="font-sans font-bold h5">{selection.title}</h5></a>
+                ><h6 class="font-sans font-bold h6">{selection.title}</h6></a>
             {/each}
             
             <div class="">
@@ -105,6 +108,7 @@
                 <Accordion bg="bg-[#01009F]" content={$navigation.loan} textColor="text-white font-bold  hover:rounded-2xl" bind:this={loanAccordDesktop} 
                 name="Loan" on:mouseenter={handleLoanAccordDesktop} on:click={handleLoanAccordDesktop}/>
             </div>
+
         </div>
     </div>
 </nav>
@@ -132,6 +136,8 @@
             <Accordion content={$navigation.loan} textColor="text-white font-bold" bind:this={loanAccord} name="Loan" on:click={handleLoanAccordMobile}/>
 
             <Accordion content={$navigation.location} textColor="text-white font-bold" bind:this={locationAccord} name="Location" on:click={handleLocationAccordMobile}/>
+
+            
 
             {#each default_data as selection }
                 <a href={selection.url} class="p-2 font-bold transition-all" 

@@ -52,6 +52,7 @@ export type DynamicRoute = {
 export type NavStore = {
     location: NavigationRoutes[]
     loan: NavigationRoutes[]
+    talkWithUs: NavigationRoutes[]
 }
 
 export interface InternalSearchModel <T extends Record<PropertyKey, any>> {

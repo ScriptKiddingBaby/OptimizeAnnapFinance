@@ -20,7 +20,7 @@ on:click
 on:mouseenter
 >
     <div class="w-full">
-        <h6 class="font-sans font-bold h5">{name}</h6>
+        <h6 class="font-sans font-bold h6">{name}</h6>
         
     </div>
 

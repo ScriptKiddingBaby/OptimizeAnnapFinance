@@ -24,6 +24,10 @@ export const navigation = writable<NavStore>({
     loan: <NavigationRoutes[]> [
         {title: "Sangla ORCR", url: "/Loan/Sangla-ORCR", index: 0},
         {title: "Repossessed Units", url: "/Loan/Repossessed-Units", index: 1},
+    ],
+
+    talkWithUs: <NavigationRoutes[]> [
+        {title: "Login", url: "/TalkWithUs/Login", index: 0},
     ]
 });
 
