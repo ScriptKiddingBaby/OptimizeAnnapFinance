@@ -8,6 +8,7 @@
 	import { getToastStore, type ToastSettings } from "@skeletonlabs/skeleton";
 	import { onMount } from "svelte";
 	import type { User } from "@supabase/supabase-js";
+	import { fly } from "svelte/transition";
 
     const handleFetch = async () =>
     {
@@ -90,14 +91,14 @@
         }
     }
 
-    const checkText = () =>
-    {
-        
-    }
+    let disabled = true;
 
+    const checkText = () => dsComp.chatValue.trim().length > 1 ? disabled = false : disabled = true;
+        
+    
 </script>
 
-<div class="mx-auto sm:max-w-xl">
+<div class="mx-auto sm:max-w-4xl">
     <div class="">
         <div class="max-w-fit">
             <Btn pad="px-2 py-1" bg="bg-red-500" round="rounded-lg" name="Logout" loader={dsComp.loader} loader_name="drinking beer." on:click={logoutHandler}/>
@@ -107,7 +108,7 @@
         <div class="max-h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll ">
             {#if $statics.chatArray.length}
                 {#each $statics.chatArray as chats}
-                    <div class="card variant-outline-secondary p-2">
+                    <div class="card variant-outline-secondary p-2" >
                         <div class="flex">
                             <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
                             <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
@@ -120,6 +121,43 @@
                 {/each}
             {:else}
                 <p class="font-sans text-center text-green-800 p-4">No chat history.</p>
+
+                <div class="flex gap-1 flex-wrap justify-center">
+                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                    
+                        <div class="p-2">
+                            <p>What is Annapolis Finance?</p>
+                        </div>
+                    </div>
+
+                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                    
+                        <div class="p-2">
+                            <p>Who founded Annapolis Finance?</p>
+                        </div>
+                    </div>
+
+                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                    
+                        <div class="p-2">
+                            <p>Who founded Annapolis Finance?</p>
+                        </div>
+                    </div>
+
+                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                    
+                        <div class="p-2">
+                            <p>Generated Text comming soon!</p>
+                        </div>
+                    </div>
+
+                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                    
+                        <div class="p-2">
+                            <p>Common issue!</p>
+                        </div>
+                    </div>
+                </div>
             {/if}
             
         </div>
@@ -136,13 +174,14 @@
                 placeholder="Write a message..."
                 rows="1"
             />
-            <button class="variant-filled-primary"
+            <button class="{disabled ? "bg-red-500" : "bg-green-500"} font-sans text-white "
+            {disabled}
             on:click={handleChat}
             >
                 {#if dsComp.sendLoader}
-                    Sending
+                    <p>Sending</p>
                 {:else}
-                    Send
+                    <p>Send</p>
                 {/if}
             </button>
         </div>
