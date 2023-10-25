@@ -105,10 +105,10 @@
         </div>
         <h4 class="h4 font-sans text-center">Hello {$statics.userObject.email}</h4>
 
-        <div class="max-h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll ">
+        <div class="h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll ">
             {#if $statics.chatArray.length}
                 {#each $statics.chatArray as chats}
-                    <div class="card variant-outline-secondary p-2" >
+                    <div class="card border-[0.1rem] border-blue-500 bg-white p-2" >
                         <div class="flex">
                             <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
                             <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
@@ -122,39 +122,41 @@
             {:else}
                 <p class="font-sans text-center text-green-800 p-4">No chat history.</p>
 
-                <div class="flex gap-1 flex-wrap justify-center">
-                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
-                    
-                        <div class="p-2">
-                            <p>What is Annapolis Finance?</p>
+                <div class="h-[60vh] flex flex-col items-center justify-end">
+                    <div class="flex gap-1 flex-wrap justify-center">
+                        <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                        
+                            <div class="p-2">
+                                <p>What is Annapolis Finance?</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
-                    
-                        <div class="p-2">
-                            <p>Who founded Annapolis Finance?</p>
+    
+                        <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                        
+                            <div class="p-2">
+                                <p>Who founded Annapolis Finance?</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
-                    
-                        <div class="p-2">
-                            <p>Who founded Annapolis Finance?</p>
+    
+                        <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                        
+                            <div class="p-2">
+                                <p>Who founded Annapolis Finance?</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
-                    
-                        <div class="p-2">
-                            <p>Generated Text comming soon!</p>
+    
+                        <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                        
+                            <div class="p-2">
+                                <p>Generated Text comming soon!</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
-                    
-                        <div class="p-2">
-                            <p>Common issue!</p>
+    
+                        <div class="card variant-outline-secondary p-2 font-sans card-hover cursor-pointer" >
+                        
+                            <div class="p-2">
+                                <p>Common issue!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
