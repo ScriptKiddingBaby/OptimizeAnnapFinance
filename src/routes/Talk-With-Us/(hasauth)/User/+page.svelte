@@ -108,7 +108,7 @@
         <div class="h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll ">
             {#if $statics.chatArray.length}
                 {#each $statics.chatArray as chats}
-                    <div class="card border-[0.1rem] border-blue-500 bg-white p-2" >
+                    <div class="card border-[0.1rem] border-blue-500 bg-white p-4 rounded-tl-3xl rounded-br-3xl" >
                         <div class="flex">
                             <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
                             <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>

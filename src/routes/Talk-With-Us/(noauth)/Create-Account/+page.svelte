@@ -34,14 +34,13 @@
                 const {data, error} = await supabase.auth.signUp({email: dsComp.email, password: dsComp.password, options:{
                     data: {
                         display_name: dsComp.displayName,
-                        admin: false
                     }
                 }})
                 if(data.user){
-                    const insert = await supabase.from("normal_users_tb").insert({
-                        owner_uid: data.user.id,
-                        owner_email: data.user.email,
-                        owner_display_name: data.user.user_metadata.displayName,
+                    const insert = await supabase.from("users_tb").insert({
+                        uid: data.user.id,
+                        email: data.user.email,
+                        display_name: data.user.user_metadata.display_name,
                     });
 
                     if(insert.error){
