@@ -1,3 +1,4 @@
+import type { User } from "@supabase/supabase-js"
 
 
 
@@ -81,11 +82,27 @@ export type UnitsTypes = {
     
 }
 
-
 export type ChatTypes = {
     id: number
     created_at: string
     messages: string
     display_name: string
-    owner_uid: string
+    host_uid: string
+    host_email: string
+}
+
+export type AuthTypes = {
+    userInfo: User
+    isAdmin: boolean
+    uid: string
+}
+
+export type UsersTB = {
+    id: number
+    created_at: string
+    uid: string
+    email: string
+    display_name: string
+    is_admin: boolean
+
 }

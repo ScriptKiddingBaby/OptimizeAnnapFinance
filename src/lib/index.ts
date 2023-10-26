@@ -1,5 +1,5 @@
 import {writable} from "svelte/store";
-import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes, ChatTypes } from "./types";
+import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes, ChatTypes, AuthTypes } from "./types";
 
 import headBanner from "$lib/Images/Location/HeadOffice/officeBanner.webp";
 import antipoloBanner from "$lib/Images/Location/AntipoloOffice/antipoloBanner.webp";
@@ -412,12 +412,18 @@ export const statics = writable({
     showMenuMobile: false,
 
     chatArray:<ChatTypes[]> [],
-    userObject:<User> {},
+    auth:<AuthTypes> {
+        userInfo: {},
+        isAdmin: false,
+    },
     unitsArray:<UnitsTypes[]> [],
+
+    newMsg: false,
 })
 
 export const authenticated = writable({
     chatsArray:<ChatTypes[]> [],
     userObject:<User | undefined> {},
 })
+
 
