@@ -172,7 +172,7 @@
     <h4 class="h4 font-sans text-center font-bold">Hello Admin!</h4>
 
     <div class="flex mt-5 ">
-        <div class="border-[0.1rem] border-slate-500 rounded-l-2xl">      
+        <div class="border-[0.1rem] border-slate-500 rounded-l-2xl w-[25%]">      
             <div class="p-2 border-b-slate-500 border-b-[0.1rem]">
                 <input type="text" class="input rounded-2xl w-full " placeholder="Search Contact..." />
             </div>
@@ -195,7 +195,7 @@
             </div>
         </div>
 
-        <div class="border-[0.1rem] w-[60vw] border-r-slate-500 border-b-slate-500 border-t-slate-500 rounded-r-2xl p-2">
+        <div class="border-[0.1rem] w-[75%] border-r-slate-500 border-b-slate-500 border-t-slate-500 rounded-r-2xl p-2 break-words">
             <h4 class="h4 font-bold opacity-50">Chatting with {$statics.activeName}</h4>
             <div class="h-[60vh] overflow-auto flex flex-col gap-2 p-2" bind:this={scrollBehav}>
             
@@ -208,7 +208,7 @@
 
                             <img src="https://www.svgrepo.com/show/527946/user-circle.svg" alt="" class="w-14" />
         
-                            <div class="w-full {chats.host_email === auth.userInfo.email ? "bg-[#C0DCDC]" : "bg-[#C9CEDE]"} flex  flex-col gap-2 card border-[0.1rem] border-blue-500 p-4 {chats.host_email === auth.userInfo.email ? " rounded-tr-3xl rounded-bl-3xl" : "rounded-tl-3xl rounded-br-3xl"} " in:fly={{x:-200, duration:1000}} >
+                            <div class="w-full overflow-x-hidden {chats.host_email === auth.userInfo.email ? "bg-[#C0DCDC]" : "bg-[#C9CEDE]"} flex  flex-col gap-2 card border-[0.1rem] border-blue-500 p-4 {chats.host_email === auth.userInfo.email ? " rounded-tr-3xl rounded-bl-3xl" : "rounded-tl-3xl rounded-br-3xl"} " in:fly={{x:-200, duration:1000}} >
                                 <div class="flex">
                                     <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
                                     <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
