@@ -1,5 +1,5 @@
 import {writable} from "svelte/store";
-import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes, ChatTypes, AuthTypes } from "./types";
+import type { NavigationRoutes, SEOinternalTypes, InternalSearchModel,NavStore, DynamicRoute, UnitsTypes, ChatTypes, AuthTypes, UsersTB } from "./types";
 
 import headBanner from "$lib/Images/Location/HeadOffice/officeBanner.webp";
 import antipoloBanner from "$lib/Images/Location/AntipoloOffice/antipoloBanner.webp";
@@ -418,7 +418,12 @@ export const statics = writable({
     },
     unitsArray:<UnitsTypes[]> [],
 
-    newMsg: false,
+    //**Admin panel */
+    usersTbArray:<UsersTB[]> [],
+    adminChatArray:<ChatTypes[]> [],
+    activeItem: 0,
+    activeName: "",
+    userTbObj:<UsersTB> {}
 })
 
 export const authenticated = writable({

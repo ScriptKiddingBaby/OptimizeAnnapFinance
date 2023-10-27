@@ -3,8 +3,9 @@
     import AdminUser from "./AdminUser.svelte";
     import { statics } from "$lib";
 	import type { PageData } from "./$types";
-	import type { AuthTypes } from "$lib/types";
-	import type { User } from "@supabase/supabase-js";
+	import type { AuthTypes, ChatTypes } from "$lib/types";
+	import type { PostgrestSingleResponse, User } from "@supabase/supabase-js";
+	import { supabase } from "$lib/DB/supabaseConfig";
 
     export let data: PageData
 
@@ -13,6 +14,7 @@
         isAdmin: data.isAdmin as boolean,
         uid: data.uid as string,
     }
+
 
 </script>
 

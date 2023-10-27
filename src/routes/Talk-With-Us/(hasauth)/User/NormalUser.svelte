@@ -117,18 +117,23 @@
         </div>
         <h4 class="h4 font-sans text-center">Hello {auth.userInfo.email}</h4>
 
-        <div class="h-[60vh] border-[0.1rem] card p-2 flex flex-col gap-2 overflow-y-scroll font-sans " bind:this={scrollBehav}>
+        <div class="h-[60vh] border-[0.1rem] card p-4 flex flex-col gap-2 overflow-y-scroll font-sans " bind:this={scrollBehav}>
             {#if $statics.chatArray.length}
                 {#each $statics.chatArray as chats}
                     
-                    <div class="card border-[0.1rem] border-blue-500 bg-white p-4 rounded-tl-3xl rounded-br-3xl " in:fly={{x:-200, duration:1000}} >
-                        <div class="flex">
-                            <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
-                            <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
-                        </div>
+                    <div class="flex items-start {chats.host_email === auth.userInfo.email ? "flex" : "flex-row-reverse"}">
 
-                        <div class="p-2">
-                            <p>{chats.messages}</p>
+                        <img src="https://www.svgrepo.com/show/527946/user-circle.svg" alt="" class="w-14" />
+
+                        <div class="w-full {chats.host_email === auth.userInfo.email ? "bg-[#C0DCDC]" : "bg-[#C9CEDE]"} flex  flex-col gap-2 card border-[0.1rem] border-blue-500 p-4 {chats.host_email === auth.userInfo.email ? " rounded-tr-3xl rounded-bl-3xl" : "rounded-tl-3xl rounded-br-3xl"} " in:fly={{x:-200, duration:1000}} >
+                            <div class="flex">
+                                <h6 class="h6 font-bold w-full font-sans">{chats.display_name}</h6>
+                                <small class="font-sans w-full font-bold text-right opacity-50">{convertDate(chats.created_at)}</small>
+                            </div>
+            
+                            <div class="p-2">
+                                <p class="font-sans">{chats.messages}</p>
+                            </div>
                         </div>
                     </div>
                     
